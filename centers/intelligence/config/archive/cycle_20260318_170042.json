@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-18 17:00:42",
+  "guaranteed": [
+    "arXiv_AI",
+    "Nature",
+    "MIT_TechnologyReview"
+  ],
+  "chosen": [
+    "Wired",
+    "Quanta",
+    "Wired",
+    "Edge",
+    "Edge",
+    "Quanta",
+    "Wired"
+  ],
+  "all": [
+    "MIT_TechnologyReview",
+    "Wired",
+    "Edge",
+    "Edge",
+    "Wired",
+    "Wired",
+    "arXiv_AI",
+    "Nature",
+    "Quanta",
+    "Quanta"
+  ]
+}

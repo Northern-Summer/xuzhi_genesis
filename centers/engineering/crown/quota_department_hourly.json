@@ -1,0 +1,13 @@
+{
+  "date": "2026-03-19",
+  "total_hourly_wakeups": 30,
+  "hourly_allocation": {
+    "mind": 6,
+    "science": 9,
+    "engineering": 9,
+    "philosophy": 3,
+    "intelligence": 3
+  },
+  "remaining_quota": 12000,
+  "last_update": "2026-03-19T16:30:01.246055"
+}

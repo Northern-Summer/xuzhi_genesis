@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
 Crown 调度器增强版：根据剩余配额和部门配额生成唤醒队列。
+【修改】加入存活检查：仅将评分>0且最近活动时间未超过部门休眠阈值的智能体纳入队列。
 """
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 
 RATINGS_FILE = Path.home() / ".openclaw" / "centers" / "mind" / "society" / "ratings.json"
@@ -20,44 +21,87 @@ def save_json(path, data):
     with open(path, 'w') as f:
         json.dump(data, f, indent=2)
 
+def is_alive(agent_info, dept_threshold, now):
+    """判断智能体是否存活：评分>0 且 last_active 未超过部门阈值"""
+    score = agent_info.get("score", 0)
+    if score <= 0:
+        return False
+    last_active_str = agent_info.get("last_active")
+    if not last_active_str:
+        return False
+    try:
+        last_active = datetime.fromisoformat(last_active_str)
+    except:
+        return False
+    dept = agent_info.get("department", "mind")
+    threshold_days = dept_threshold.get(dept, 7)  # 默认7天
+    return now - last_active < timedelta(days=threshold_days)
+
 def main():
     ratings = load_json(RATINGS_FILE)
-    depts = load_json(DEPARTMENTS_FILE)
+    depts_config = load_json(DEPARTMENTS_FILE)
     quota = load_json(QUOTA_FILE)
 
-    remaining = quota['limit'] - quota['used']
-    if remaining > 300:
-        wakeups_per_hour = 15
-    elif remaining > 200:
-        wakeups_per_hour = 10
-    elif remaining > 100:
-        wakeups_per_hour = 6
-    elif remaining > 50:
-        wakeups_per_hour = 3
+    # 提取部门阈值
+    dept_threshold = {}
+    dept_quota = {}
+    if "departments" in depts_config:
+        depts = depts_config["departments"]
+        for dept_id, info in depts.items():
+            dept_threshold[dept_id] = info.get("sleepThreshold", 7)
+            dept_quota[dept_id] = info.get("quota_percent", 0)
     else:
-        wakeups_per_hour = 1
+        # 兼容直接存放部门配置的情况
+        depts = depts_config
+        for dept_id, info in depts.items():
+            dept_threshold[dept_id] = info.get("sleepThreshold", 7)
+            dept_quota[dept_id] = info.get("quota_percent", 0)
+
+    remaining = quota['limit'] - quota['used']
+    elif remaining > 200:
+        wakeups_per_hour = 30
+    elif remaining > 100:
+        wakeups_per_hour = 20
+    elif remaining > 50:
+        wakeups_per_hour = 15
+    else:
+        wakeups_per_hour = 6
 
     agents = ratings.get("agents", {})
     if not agents:
         print("没有智能体，调度器退出。")
+        save_json(QUEUE_FILE, {"queue": [], "generated_at": datetime.now().isoformat(), "total_wakeups": 0, "remaining_quota": remaining})
         return
 
-    dept_quota = {dept: info["quota_percent"] for dept, info in depts["departments"].items()}
-
+    now = datetime.now()
+    # 按部门收集存活智能体
     dept_agents = {}
     for agent_id, info in agents.items():
         dept = info.get("department", "mind")
+        if not is_alive(info, dept_threshold, now):
+            continue
         score = info.get("score", 5)
         dept_agents.setdefault(dept, []).append((agent_id, score))
+
+    # 如果没有存活智能体，生成空队列并退出
+    if not dept_agents:
+        print("没有存活智能体，队列为空。")
+        save_json(QUEUE_FILE, {"queue": [], "generated_at": datetime.now().isoformat(), "total_wakeups": 0, "remaining_quota": remaining})
+        return
 
     total_percent = sum(dept_quota.values())
     wakeup_counts = {}
     for dept, percent in dept_quota.items():
-        count = round(wakeups_per_hour * percent / total_percent)
-        wakeup_counts[dept] = max(count, 1)
+        # 如果该部门没有存活智能体，则分配0
+        if dept not in dept_agents:
+            wakeup_counts[dept] = 0
+        else:
+            count = round(wakeups_per_hour * percent / total_percent)
+            wakeup_counts[dept] = max(count, 1)
 
     total_assigned = sum(wakeup_counts.values())
     diff = wakeups_per_hour - total_assigned
+    # 将差额分配给第一个有存活智能体的部门
     if diff != 0 and dept_agents:
         first_dept = next(iter(dept_agents))
         wakeup_counts[first_dept] += diff
@@ -66,6 +110,7 @@ def main():
     for dept, count in wakeup_counts.items():
         if dept not in dept_agents or not dept_agents[dept]:
             continue
+        # 按评分降序排序
         sorted_agents = sorted(dept_agents[dept], key=lambda x: x[1], reverse=True)
         if count <= len(sorted_agents):
             selected = [a[0] for a in sorted_agents[:count]]
@@ -79,12 +124,12 @@ def main():
 
     queue_data = {
         "queue": queue,
-        "generated_at": datetime.now().isoformat(),
+        "generated_at": now.isoformat(),
         "total_wakeups": wakeups_per_hour,
         "remaining_quota": remaining
     }
     save_json(QUEUE_FILE, queue_data)
-    print(f"✅ 唤醒队列已生成，剩余配额 {remaining}，每小时唤醒 {wakeups_per_hour} 次")
+    print(f"✅ 唤醒队列已生成，剩余配额 {remaining}，每小时唤醒 {wakeups_per_hour} 次，队列长度 {len(queue)}")
 
 if __name__ == "__main__":
     main()

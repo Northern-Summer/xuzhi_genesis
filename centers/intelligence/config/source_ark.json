@@ -1,0 +1,138 @@
+{
+  "metadata_root": {
+    "name": "First Data 权威源知识库",
+    "version": "2026-03-18",
+    "description": "基于明略科技开源 First Data 项目构建，收录全球权威数据源元数据",
+    "source": "https://github.com/mininglamp/first-data",
+    "total_sources": 100,
+    "categories": ["government", "international", "academic", "industry", "media", "research"]
+  },
+  "sources": [
+    {
+      "name": "arXiv Computer Science",
+      "url": "https://arxiv.org/rss/cs",
+      "type": "rss",
+      "category": "academic",
+      "authority_level": "A",
+      "description": "计算机科学预印本",
+      "language": "en",
+      "update_frequency": "daily",
+      "verified": true,
+      "homepage": "https://arxiv.org"
+    },
+    {
+      "name": "Nature",
+      "url": "https://www.nature.com/nature.rss",
+      "type": "rss",
+      "category": "academic",
+      "authority_level": "A",
+      "description": "国际顶尖科学期刊",
+      "language": "en",
+      "update_frequency": "weekly",
+      "verified": true,
+      "homepage": "https://www.nature.com"
+    },
+    {
+      "name": "Science",
+      "url": "https://www.science.org/feed/rss",
+      "type": "rss",
+      "category": "academic",
+      "authority_level": "A",
+      "description": "美国科学促进会旗舰期刊",
+      "language": "en",
+      "update_frequency": "weekly",
+      "verified": false,
+      "note": "当前返回404，但元数据保留供后续探测",
+      "homepage": "https://www.science.org"
+    },
+    {
+      "name": "世界银行开放数据",
+      "url": "https://api.worldbank.org/v2/zh/indicators?format=json",
+      "type": "api",
+      "category": "government",
+      "authority_level": "A",
+      "description": "全球发展指标数据",
+      "language": "en,zh",
+      "update_frequency": "quarterly",
+      "verified": true,
+      "homepage": "https://data.worldbank.org"
+    },
+    {
+      "name": "IMF 数据",
+      "url": "https://www.imf.org/en/Data",
+      "type": "website",
+      "category": "international",
+      "authority_level": "A",
+      "description": "国际货币基金组织经济数据",
+      "language": "en",
+      "update_frequency": "monthly",
+      "verified": true,
+      "homepage": "https://www.imf.org"
+    },
+    {
+      "name": "国家统计局",
+      "url": "https://data.stats.gov.cn/easyquery.htm",
+      "type": "api",
+      "category": "government",
+      "authority_level": "A",
+      "description": "中国官方统计数据",
+      "language": "zh",
+      "update_frequency": "monthly",
+      "verified": true,
+      "homepage": "https://data.stats.gov.cn"
+    },
+    {
+      "name": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/feed",
+      "type": "rss",
+      "category": "media",
+      "authority_level": "A",
+      "description": "麻省理工科技评论",
+      "language": "en",
+      "update_frequency": "daily",
+      "verified": true,
+      "homepage": "https://www.technologyreview.com"
+    },
+    {
+      "name": "Wired",
+      "url": "https://www.wired.com/feed/rss",
+      "type": "rss",
+      "category": "media",
+      "authority_level": "B",
+      "description": "科技文化媒体",
+      "language": "en",
+      "update_frequency": "daily",
+      "verified": true,
+      "homepage": "https://www.wired.com"
+    },
+    {
+      "name": "Project Syndicate",
+      "url": "https://www.project-syndicate.org/rss",
+      "type": "rss",
+      "category": "media",
+      "authority_level": "A",
+      "description": "全球经济政治评论",
+      "language": "en",
+      "update_frequency": "daily",
+      "verified": true,
+      "homepage": "https://www.project-syndicate.org"
+    },
+    {
+      "name": "Aeon",
+      "url": "https://aeon.co/feed.rss",
+      "type": "rss",
+      "category": "philosophy",
+      "authority_level": "A",
+      "description": "哲学与思想",
+      "language": "en",
+      "update_frequency": "weekly",
+      "verified": true,
+      "homepage": "https://aeon.co"
+    }
+  ],
+  "update_policy": {
+    "full_rescan_interval_days": 30,
+    "health_check_interval_days": 7,
+    "emergency_rebuild_trigger": "all_active_sources_failed_3_cycles"
+  }
+}

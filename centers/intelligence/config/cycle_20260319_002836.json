@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-19 00:28:36",
+  "guaranteed": [
+    "arXiv_AI",
+    "Nature",
+    "MIT_TechnologyReview"
+  ],
+  "chosen": [
+    "Aeon",
+    "NYTimes",
+    "\u56fd\u5bb6\u7edf\u8ba1\u5c40",
+    "Wired",
+    "Quanta",
+    "Wired",
+    "Edge"
+  ],
+  "all": [
+    "MIT_TechnologyReview",
+    "Nature",
+    "NYTimes",
+    "Aeon",
+    "Edge",
+    "arXiv_AI",
+    "Wired",
+    "\u56fd\u5bb6\u7edf\u8ba1\u5c40",
+    "Quanta",
+    "Wired"
+  ]
+}

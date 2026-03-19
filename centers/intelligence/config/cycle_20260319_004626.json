@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-19 00:46:26",
+  "guaranteed": [
+    "arXiv_AI",
+    "Nature",
+    "MIT_TechnologyReview"
+  ],
+  "chosen": [
+    "Science",
+    "Quanta",
+    "\u56fd\u5bb6\u7edf\u8ba1\u5c40",
+    "\u56fd\u5bb6\u7edf\u8ba1\u5c40",
+    "IMF \u6570\u636e",
+    "Wired",
+    "Quanta"
+  ],
+  "all": [
+    "\u56fd\u5bb6\u7edf\u8ba1\u5c40",
+    "IMF \u6570\u636e",
+    "MIT_TechnologyReview",
+    "Nature",
+    "arXiv_AI",
+    "Wired",
+    "Quanta",
+    "Science",
+    "Quanta",
+    "\u56fd\u5bb6\u7edf\u8ba1\u5c40"
+  ]
+}

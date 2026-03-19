@@ -1,0 +1,300 @@
+{
+  "sources": [
+    {
+      "name": "arXiv_AI",
+      "url": "https://arxiv.org/rss/cs.AI",
+      "tier": "A",
+      "health_score": 1.0,
+      "contribution_score": 39.4,
+      "attempts": 17,
+      "successes": 17,
+      "last_status": "success"
+    },
+    {
+      "name": "Nature",
+      "url": "https://www.nature.com/nature.rss",
+      "tier": "A",
+      "health_score": 1.0,
+      "contribution_score": 7.5,
+      "attempts": 18,
+      "successes": 18,
+      "last_status": "success",
+      "last_check": "2026-03-18T16:45:00.642487",
+      "last_probe_detail": {
+        "success": true,
+        "status_code": 200,
+        "reason": "ok"
+      }
+    },
+    {
+      "name": "Quanta",
+      "url": "https://www.quantamagazine.org/feed",
+      "tier": "A",
+      "health_score": 1.0,
+      "contribution_score": 0.5,
+      "attempts": 9,
+      "successes": 9,
+      "last_status": "success"
+    },
+    {
+      "name": "Edge",
+      "url": "https://www.edge.org/feed",
+      "tier": "A",
+      "health_score": 1.0,
+      "contribution_score": 0.0,
+      "attempts": 9,
+      "successes": 9,
+      "last_status": "success"
+    },
+    {
+      "name": "Science",
+      "url": "https://www.science.org/feed/rss",
+      "tier": "A",
+      "health_score": 0.20000000000000007,
+      "contribution_score": 0.0,
+      "attempts": 4,
+      "successes": 0,
+      "last_status": "failure",
+      "last_check": "2026-03-18T16:45:01.793574",
+      "last_probe_detail": {
+        "success": false,
+        "status_code": 404,
+        "reason": "http_404"
+      }
+    },
+    {
+      "name": "Wired",
+      "url": "https://www.wired.com/feed/rss",
+      "tier": "B",
+      "health_score": 1.0,
+      "contribution_score": 9.5,
+      "attempts": 43,
+      "successes": 43,
+      "last_status": "success",
+      "last_check": "2026-03-18T16:45:13.284527",
+      "last_probe_detail": {
+        "success": true,
+        "status_code": 200,
+        "reason": "ok"
+      }
+    },
+    {
+      "name": "TechCrunch",
+      "url": "http://feeds.feedburner.com/TechCrunch",
+      "tier": "B",
+      "health_score": 0.20000000000000007,
+      "contribution_score": 0.0,
+      "attempts": 4,
+      "successes": 0,
+      "last_status": "failure"
+    },
+    {
+      "name": "TheVerge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "tier": "B",
+      "health_score": 0.4000000000000001,
+      "contribution_score": 0.0,
+      "attempts": 3,
+      "successes": 0,
+      "last_status": "failure"
+    },
+    {
+      "name": "Bloomberg",
+      "url": "https://feeds.bloomberg.com/markets/news.rss",
+      "tier": "B",
+      "health_score": 0.20000000000000007,
+      "contribution_score": 0.0,
+      "attempts": 4,
+      "successes": 0,
+      "last_status": "failure"
+    },
+    {
+      "name": "NYTimes",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "tier": "B",
+      "health_score": 0.1,
+      "contribution_score": 0.0,
+      "attempts": 5,
+      "successes": 0,
+      "last_status": "failure"
+    },
+    {
+      "name": "BBC",
+      "url": "https://feeds.bbci.co.uk/news/rss.xml",
+      "tier": "B",
+      "health_score": 0.4000000000000001,
+      "contribution_score": 0.0,
+      "attempts": 3,
+      "successes": 0,
+      "last_status": "failure"
+    },
+    {
+      "name": "Economist",
+      "url": "https://www.economist.com/feeds/print-sections/77/business.xml",
+      "tier": "A",
+      "health_score": 0.20000000000000007,
+      "contribution_score": 0.0,
+      "attempts": 4,
+      "successes": 0,
+      "last_status": "failure"
+    },
+    {
+      "name": "MIT_TechnologyReview",
+      "url": "https://www.technologyreview.com/feed",
+      "tier": "A",
+      "health_score": 1.0,
+      "contribution_score": 1.9,
+      "attempts": 19,
+      "successes": 19,
+      "last_status": "success",
+      "last_check": "2026-03-18T16:45:12.553191",
+      "last_probe_detail": {
+        "success": true,
+        "status_code": 200,
+        "reason": "ok"
+      }
+    },
+    {
+      "name": "OxfordAcademic",
+      "url": "https://academic.oup.com/rss",
+      "tier": "A",
+      "health_score": 0.1,
+      "contribution_score": 0.0,
+      "attempts": 5,
+      "successes": 0,
+      "last_status": "failure"
+    },
+    {
+      "name": "PNAS",
+      "url": "https://www.pnas.org/rss",
+      "tier": "A",
+      "health_score": 0.20000000000000007,
+      "contribution_score": 0.0,
+      "attempts": 4,
+      "successes": 0,
+      "last_status": "failure"
+    },
+    {
+      "name": "arXiv Computer Science",
+      "url": "https://arxiv.org/rss/cs",
+      "type": "rss",
+      "category": "academic",
+      "authority_level": "A",
+      "attempts": 8,
+      "successes": 8,
+      "last_check": "2026-03-18T16:44:59.576796",
+      "last_status": "success",
+      "health_score": 1.0,
+      "last_probe_detail": {
+        "success": true,
+        "status_code": 302,
+        "reason": "ok"
+      },
+      "contribution_score": 0.0,
+      "tier": "C"
+    },
+    {
+      "name": "世界银行开放数据",
+      "url": "https://api.worldbank.org/v2/zh/indicators?format=json",
+      "type": "api",
+      "category": "government",
+      "authority_level": "A",
+      "attempts": 1,
+      "successes": 0,
+      "last_check": "2026-03-18T16:45:03.249715",
+      "last_status": "failure",
+      "health_score": 0.3,
+      "last_probe_detail": {
+        "success": false,
+        "status_code": 404,
+        "reason": "http_404"
+      },
+      "contribution_score": 0.0,
+      "tier": "C"
+    },
+    {
+      "name": "IMF 数据",
+      "url": "https://www.imf.org/en/Data",
+      "type": "website",
+      "category": "international",
+      "authority_level": "A",
+      "attempts": 6,
+      "successes": 5,
+      "last_check": "2026-03-18T16:45:04.345755",
+      "last_status": "success",
+      "health_score": 1.0,
+      "last_probe_detail": {
+        "success": false,
+        "status_code": 403,
+        "reason": "http_403"
+      },
+      "contribution_score": 0.0,
+      "tier": "C"
+    },
+    {
+      "name": "国家统计局",
+      "url": "https://data.stats.gov.cn/easyquery.htm",
+      "type": "api",
+      "category": "government",
+      "authority_level": "A",
+      "attempts": 7,
+      "successes": 7,
+      "last_check": "2026-03-18T16:45:11.434730",
+      "last_status": "success",
+      "health_score": 1.0,
+      "last_probe_detail": {
+        "success": true,
+        "status_code": 200,
+        "reason": "ok"
+      },
+      "contribution_score": 0.0,
+      "tier": "C"
+    },
+    {
+      "name": "Project Syndicate",
+      "url": "https://www.project-syndicate.org/rss",
+      "type": "rss",
+      "category": "media",
+      "authority_level": "A",
+      "attempts": 2,
+      "successes": 0,
+      "last_check": "2026-03-18T16:45:56.591557",
+      "last_status": "failure",
+      "health_score": 0.1,
+      "last_probe_detail": {
+        "success": false,
+        "reason": "timeout"
+      },
+      "contribution_score": 0.0,
+      "tier": "C"
+    },
+    {
+      "name": "Aeon",
+      "url": "https://aeon.co/feed.rss",
+      "type": "rss",
+      "category": "philosophy",
+      "authority_level": "A",
+      "attempts": 5,
+      "successes": 5,
+      "last_check": "2026-03-18T16:45:57.433815",
+      "last_status": "success",
+      "health_score": 1.0,
+      "last_probe_detail": {
+        "success": true,
+        "status_code": 200,
+        "reason": "ok"
+      },
+      "contribution_score": 0.0,
+      "tier": "C"
+    }
+  ],
+  "config": {
+    "core_guaranteed_count": 3,
+    "max_sources_per_cycle": 10,
+    "health_decay": 0.95,
+    "success_bonus": 0.1,
+    "failure_penalty": 0.2,
+    "contribution_weight": 0.3,
+    "citation_weight_factor": 1.0
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "date": "2026-03-18 15:59:25",
+  "core_count": 5,
+  "satellite_count": 5,
+  "sources": [
+    "arXiv_AI",
+    "BBC",
+    "TechCrunch",
+    "MIT_TechnologyReview",
+    "Science",
+    "OxfordAcademic",
+    "PNAS",
+    "Quanta",
+    "Nature",
+    "Edge"
+  ]
+}

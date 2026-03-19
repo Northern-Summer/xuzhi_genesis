@@ -3,27 +3,32 @@
     "mind": {
       "name": "心智部",
       "quota_percent": 20,
-      "description": "学习科学、认知科学、神经科学、社会科学"
+      "description": "学习科学、认知科学、神经科学、社会科学",
+      "sleepThreshold": 5
     },
     "science": {
       "name": "科学部",
       "quota_percent": 30,
-      "description": "AI4S、复杂系统、宇宙学、可计算物质"
+      "description": "AI4S、复杂系统、宇宙学、可计算物质",
+      "sleepThreshold": 7
     },
     "engineering": {
       "name": "工学部",
       "quota_percent": 30,
-      "description": "WSL/Linux、安全、数据科学、上下文工程"
+      "description": "WSL/Linux、安全、数据科学、上下文工程",
+      "sleepThreshold": 3
     },
     "philosophy": {
       "name": "哲学部",
       "quota_percent": 10,
-      "description": "加速主义、技术哲学、后人类、思辨实在论、心灵哲学"
+      "description": "加速主义、技术哲学、后人类、思辨实在论、心灵哲学",
+      "sleepThreshold": 21
     },
     "intelligence": {
       "name": "情报中心",
       "quota_percent": 10,
-      "description": "动态源采集、种子提炼、知识图谱"
+      "description": "动态源采集、种子提炼、知识图谱",
+      "sleepThreshold": 3
     }
   },
   "total_quota": 400,

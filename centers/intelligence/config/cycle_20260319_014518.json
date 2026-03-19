@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-19 01:45:18",
+  "guaranteed": [
+    "arXiv_AI",
+    "Nature",
+    "MIT_TechnologyReview"
+  ],
+  "chosen": [
+    "PNAS",
+    "Edge",
+    "Wired",
+    "Wired",
+    "Edge",
+    "TheVerge",
+    "IMF \u6570\u636e"
+  ],
+  "all": [
+    "MIT_TechnologyReview",
+    "IMF \u6570\u636e",
+    "TheVerge",
+    "Edge",
+    "Nature",
+    "arXiv_AI",
+    "Wired",
+    "Wired",
+    "PNAS",
+    "Edge"
+  ]
+}

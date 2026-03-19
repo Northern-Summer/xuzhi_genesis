@@ -1,7 +1,6 @@
 {
-  "queue": [
-    "scientist"
-  ],
-  "generated_at": "2026-03-18T12:30:02.960209",
-  "total_wakeups": 10
+  "queue": [],
+  "generated_at": "2026-03-19T01:00:02.026134",
+  "total_wakeups": 15,
+  "remaining_quota": 12000
 }

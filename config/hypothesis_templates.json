@@ -1,0 +1,22 @@
+{
+  "templates": [
+    {
+      "pattern": "explore_causality",
+      "description": "探索 {entityA} 与 {entityB} 之间是否存在因果关系",
+      "type": "验证假设",
+      "department": "science"
+    },
+    {
+      "pattern": "verify_contradiction",
+      "description": "验证 '{statement}' 是否与已有知识矛盾",
+      "type": "验证假设",
+      "department": "philosophy"
+    },
+    {
+      "pattern": "test_generalization",
+      "description": "测试 {concept} 在 {domain} 领域中的泛化能力",
+      "type": "验证假设",
+      "department": "engineering"
+    }
+  ]
+}

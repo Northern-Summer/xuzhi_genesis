@@ -1,7 +1,7 @@
 {
   "agents": {
     "main": {
-      "score": 6,
+      "score": 8,
       "history": [
         {
           "date": "2026-03-17",
@@ -11,11 +11,18 @@
         {
           "date": "2026-03-17T23:37:00.496526",
           "delta": 1,
-          "reason": "任务 1 评价净得分 1"
+          "reason": "\u4efb\u52a1 1 \u8bc4\u4ef7\u51c0\u5f97\u5206 1"
+        },
+        {
+          "date": "2026-03-19T16:00:53.471603",
+          "delta": 2,
+          "reason": "\u6210\u679c\u53d1\u8868 (\u4efb\u52a1 9999, 4\u4eba\u6295\u7968)"
         }
       ],
       "department": "mind",
-      "capability": 3
+      "capability": 3,
+      "last_active": "2026-03-19T16:40:01.648330",
+      "credit": 15
     },
     "scientist": {
       "score": 5,
@@ -28,28 +35,37 @@
         {
           "date": "2026-03-18T00:32:54.678112",
           "delta": -1,
-          "reason": "任务 4 评价净得分 -2"
+          "reason": "\u4efb\u52a1 4 \u8bc4\u4ef7\u51c0\u5f97\u5206 -2"
         },
         {
           "date": "2026-03-18T14:00:06.667757",
           "delta": 1,
-          "reason": "竞争任务 12 评价净得分 3"
+          "reason": "\u7ade\u4e89\u4efb\u52a1 12 \u8bc4\u4ef7\u51c0\u5f97\u5206 3"
         }
       ],
       "department": "science",
-      "capability": 4
+      "capability": 4,
+      "last_active": "2026-03-19T15:30:01.011961",
+      "credit": 5
     },
     "engineer": {
-      "score": 5,
+      "score": 6,
       "history": [
         {
           "date": "2026-03-18",
           "delta": 0,
           "reason": "initial"
+        },
+        {
+          "date": "2026-03-19T00:21:47.154418",
+          "delta": 1,
+          "reason": "\u5408\u4f5c\u4efb\u52a1 39 \u8bc4\u4ef7\u51c0\u5f97\u5206 1"
         }
       ],
       "department": "engineering",
-      "capability": 3
+      "capability": 3,
+      "last_active": "2026-03-19T15:10:01.533233",
+      "credit": 10
     },
     "philosopher": {
       "score": 5,
@@ -61,8 +77,10 @@
         }
       ],
       "department": "philosophy",
-      "capability": 2
+      "capability": 2,
+      "last_active": "2026-03-19T02:00:02.559606",
+      "credit": 10
     }
   },
-  "last_updated": "2026-03-18T14:00:06.667768"
+  "last_updated": "2026-03-19T01:42:06.180820"
 }

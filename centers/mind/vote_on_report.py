@@ -4,6 +4,11 @@
 用法: vote_on_report.py --report <report_id> --vote yes/no --agent <agent_id>
 """
 import json
+# 权限检查注入
+import sys
+from pathlib import Path
+sys.path.append(str(Path.home() / '.openclaw/lib'))
+from permission_check import check_path_access, get_caller_agent, safe_open, SafePath
 import argparse
 import sys
 from pathlib import Path

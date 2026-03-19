@@ -21,9 +21,24 @@ tasks_file = Path("$TASKS_JSON")
 vote_script = Path("$VOTE_SCRIPT")
 generate_script = Path("$GENERATE_SCRIPT")
 
+# ----- 新增：更新 last_active 函数 -----
+def update_last_active(agent_id):
+    ratings_file = Path.home() / ".openclaw" / "centers" / "mind" / "society" / "ratings.json"
+    if not ratings_file.exists():
+        return
+    with open(ratings_file) as f:
+        ratings = json.load(f)
+    agents = ratings.get("agents", {})
+    if agent_id in agents:
+        agents[agent_id]["last_active"] = datetime.now().isoformat()
+        with open(ratings_file, 'w') as f:
+            json.dump(ratings, f, indent=2)
+# --------------------------------------
+
 if not tasks_file.exists():
     print(f"任务文件不存在: {tasks_file}")
-    exit(1)
+    update_last_active(agent)
+    sys.exit(1)
 
 with open(tasks_file) as f:
     data = json.load(f)
@@ -56,6 +71,7 @@ if pending_tasks:
     with open(tasks_file, 'w') as f:
         json.dump(data, f, indent=2)
     print(f"[{agent}] 已认领任务 {task_id}: {task.get('title')}")
+    update_last_active(agent)
     sys.exit(0)
 
 # ===== 2. 如果没有等待任务，则尝试评价一个已完成但未计入的任务 =====
@@ -67,6 +83,7 @@ if completed_tasks:
     vote = random.choice(['good', 'bad'])
     subprocess.run([str(vote_script), str(task_id), agent, vote])
     print(f"[{agent}] 对任务 {task_id} 投票: {vote}")
+    update_last_active(agent)
     sys.exit(0)
 
 # ===== 3. 如果既无任务也无评价，且等待任务太少，则生成新任务 =====
@@ -75,4 +92,5 @@ if pending_count < 3:
     subprocess.run([sys.executable, str(generate_script), agent])
 else:
     print(f"[{agent}] 暂无待处理任务和待评价任务")
+update_last_active(agent)
 EOF2

@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-18 16:54:59",
+  "guaranteed": [
+    "arXiv_AI",
+    "Nature",
+    "MIT_TechnologyReview"
+  ],
+  "chosen": [
+    "Quanta",
+    "Economist",
+    "TechCrunch",
+    "Economist",
+    "Edge",
+    "TechCrunch",
+    "Wired"
+  ],
+  "all": [
+    "Economist",
+    "Nature",
+    "TechCrunch",
+    "TechCrunch",
+    "Wired",
+    "Economist",
+    "arXiv_AI",
+    "Quanta",
+    "MIT_TechnologyReview",
+    "Edge"
+  ]
+}

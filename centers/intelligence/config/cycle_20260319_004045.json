@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-19 00:40:45",
+  "guaranteed": [
+    "arXiv_AI",
+    "Nature",
+    "MIT_TechnologyReview"
+  ],
+  "chosen": [
+    "Wired",
+    "TheVerge",
+    "PNAS",
+    "TheVerge",
+    "Bloomberg",
+    "OxfordAcademic",
+    "Wired"
+  ],
+  "all": [
+    "Nature",
+    "OxfordAcademic",
+    "MIT_TechnologyReview",
+    "TheVerge",
+    "Bloomberg",
+    "PNAS",
+    "Wired",
+    "Wired",
+    "TheVerge",
+    "arXiv_AI"
+  ]
+}
