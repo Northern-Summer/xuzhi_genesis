@@ -11,7 +11,8 @@
       "score": 3,
       "department": "engineering",
       "capacity": 3,
-      "status": "active"
+      "status": "active",
+      "last_active": "2026-03-21T01:30:03.035546"
     },
     "scientist": {
       "score": 3,
@@ -25,7 +26,7 @@
       "capacity": 2,
       "status": "active"
     },
-    "Λ": {
+    "\u039b": {
       "score": 7,
       "department": "engineering",
       "capacity": 4,
@@ -36,7 +37,7 @@
       "department": "engineering",
       "capacity": 3,
       "status": "active",
-      "code": "Ω",
+      "code": "\u03a9",
       "birth_time": "2026-03-21T01:27:38.841320"
     },
     "xuzhi-researcher": {
@@ -44,7 +45,7 @@
       "department": "science",
       "capacity": 3,
       "status": "active",
-      "code": "Θ",
+      "code": "\u0398",
       "birth_time": "2026-03-21T01:27:38.843954"
     },
     "xuzhi-engineer": {
@@ -52,7 +53,7 @@
       "department": "engineering",
       "capacity": 3,
       "status": "active",
-      "code": "Φ",
+      "code": "\u03a6",
       "birth_time": "2026-03-21T01:27:38.848362"
     },
     "xuzhi-philosopher": {
@@ -60,7 +61,7 @@
       "department": "philosophy",
       "capacity": 3,
       "status": "active",
-      "code": "Ψ",
+      "code": "\u03a8",
       "birth_time": "2026-03-21T01:27:38.850141"
     }
   }
