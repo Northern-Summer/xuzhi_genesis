@@ -17,6 +17,7 @@ migrate_knowledge_db.migrate()
 
 DB_PATH = Path.home() / "xuzhi_genesis" / "centers" / "intelligence" / "knowledge" / "knowledge.db"
 SEEDS_DIR = Path.home() / "xuzhi_genesis" / "centers" / "intelligence" / "seeds"
+EXCLUDE_SUBDIRS = {"library", "meta", "archive"}  # 排除文学/元数据/归档目录
 PROCESSED_FILE = Path.home() / "xuzhi_genesis" / "centers" / "intelligence" / "knowledge" / "processed_seeds.txt"
 
 # 因果关键词（中文和英文）
