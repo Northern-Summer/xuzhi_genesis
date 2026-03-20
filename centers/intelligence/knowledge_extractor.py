@@ -69,7 +69,7 @@ CAUSAL_KEYWORDS = [
 ]
 
 # 是否使用本地模型（若安装 ollama 且模型可用，可设为 True）
-USE_OLLAMA = False  # 如需启用，请改为 True 并确保 ollama 运行
+USE_OLLAMA = True  # 使用 ollama CLI 提取（推荐）
 
 def get_processed_seeds():
     if PROCESSED_FILE.exists():
@@ -82,13 +82,19 @@ def mark_seed_processed(seed_file):
         f.write(f"{seed_file.name}\n")
 
 def call_ollama(prompt):
-    """调用本地 Ollama 模型（需 ollama 库）"""
+    """调用本地 Ollama 模型（HTTP API）"""
+    import urllib.request, json
+    model = 'qwen3.5:4b'
+    body = json.dumps({"model": model, "prompt": prompt, "stream": False}).encode()
+    req = urllib.request.Request(
+        "http://localhost:11434/api/generate",
+        data=body, headers={"Content-Type": "application/json"}, method="POST"
+    )
     try:
-        import ollama
-        response = ollama.generate(model='qwen3.5:4b', prompt=prompt, stream=False)
-        return response['response']
+        with urllib.request.urlopen(req, timeout=90) as resp:
+            return json.loads(resp.read())["response"].strip()
     except Exception as e:
-        print(f"Ollama 调用失败: {e}")
+        print(f"Ollama API 失败: {e}")
         return ""
 
 def extract_with_ollama(text):

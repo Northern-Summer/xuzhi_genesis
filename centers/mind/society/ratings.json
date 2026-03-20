@@ -5,32 +5,36 @@
       "score": 3,
       "department": "engineering",
       "capacity": 3,
-      "status": "active"
+      "status": "active",
+      "last_active": "2026-03-21T03:30:01.849521"
     },
     "engineer": {
       "score": 3,
       "department": "engineering",
       "capacity": 3,
       "status": "active",
-      "last_active": "2026-03-21T01:30:03.035546"
+      "last_active": "2026-03-21T02:40:01.894581"
     },
     "scientist": {
       "score": 3,
       "department": "science",
       "capacity": 4,
-      "status": "active"
+      "status": "active",
+      "last_active": "2026-03-21T03:20:01.717638"
     },
     "philosopher": {
       "score": 3,
       "department": "philosophy",
       "capacity": 2,
-      "status": "active"
+      "status": "active",
+      "last_active": "2026-03-21T01:40:03.475967"
     },
     "\u039b": {
       "score": 7,
       "department": "engineering",
       "capacity": 4,
-      "status": "active"
+      "status": "active",
+      "last_active": "2026-03-21T02:20:02.551924"
     },
     "xuzhi-chenxi": {
       "score": 3,

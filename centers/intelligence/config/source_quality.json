@@ -6,8 +6,8 @@
       "tier": "A",
       "health_score": 1.0,
       "contribution_score": 39.4,
-      "attempts": 19,
-      "successes": 19,
+      "attempts": 20,
+      "successes": 20,
       "last_status": "success"
     },
     {
@@ -16,8 +16,8 @@
       "tier": "A",
       "health_score": 1.0,
       "contribution_score": 7.5,
-      "attempts": 21,
-      "successes": 21,
+      "attempts": 22,
+      "successes": 22,
       "last_status": "success",
       "last_check": "2026-03-20T23:17:36.765161",
       "last_probe_detail": {
@@ -32,8 +32,8 @@
       "tier": "A",
       "health_score": 1.0,
       "contribution_score": 0.5,
-      "attempts": 11,
-      "successes": 11,
+      "attempts": 12,
+      "successes": 12,
       "last_status": "success"
     },
     {
@@ -42,8 +42,8 @@
       "tier": "A",
       "health_score": 1.0,
       "contribution_score": 0.0,
-      "attempts": 11,
-      "successes": 11,
+      "attempts": 12,
+      "successes": 12,
       "last_status": "success"
     },
     {
@@ -68,8 +68,8 @@
       "tier": "B",
       "health_score": 1.0,
       "contribution_score": 9.5,
-      "attempts": 46,
-      "successes": 46,
+      "attempts": 47,
+      "successes": 47,
       "last_status": "success",
       "last_check": "2026-03-20T23:17:47.421054",
       "last_probe_detail": {
@@ -144,8 +144,8 @@
       "tier": "A",
       "health_score": 1.0,
       "contribution_score": 1.9,
-      "attempts": 22,
-      "successes": 22,
+      "attempts": 23,
+      "successes": 23,
       "last_status": "success",
       "last_check": "2026-03-20T23:17:43.965023",
       "last_probe_detail": {
@@ -180,8 +180,8 @@
       "type": "rss",
       "category": "academic",
       "authority_level": "A",
-      "attempts": 11,
-      "successes": 11,
+      "attempts": 12,
+      "successes": 12,
       "last_check": "2026-03-20T23:17:27.776303",
       "last_status": "success",
       "health_score": 1.0,
@@ -218,8 +218,8 @@
       "type": "website",
       "category": "international",
       "authority_level": "A",
-      "attempts": 9,
-      "successes": 7,
+      "attempts": 10,
+      "successes": 8,
       "last_check": "2026-03-20T23:17:42.345333",
       "last_status": "success",
       "health_score": 1.0,
@@ -237,8 +237,8 @@
       "type": "api",
       "category": "government",
       "authority_level": "A",
-      "attempts": 10,
-      "successes": 10,
+      "attempts": 11,
+      "successes": 11,
       "last_check": "2026-03-20T23:17:43.110965",
       "last_status": "success",
       "health_score": 1.0,
@@ -274,8 +274,8 @@
       "type": "rss",
       "category": "philosophy",
       "authority_level": "A",
-      "attempts": 8,
-      "successes": 8,
+      "attempts": 9,
+      "successes": 9,
       "last_check": "2026-03-20T23:18:29.053567",
       "last_status": "success",
       "health_score": 1.0,
@@ -286,6 +286,436 @@
       },
       "contribution_score": 0.0,
       "tier": "C"
+    },
+    {
+      "name": "arXiv_ML",
+      "url": "https://arxiv.org/rss/cs.LG",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "arXiv_Stats",
+      "url": "https://arxiv.org/rss/math.ST",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "arXiv_QuantPhysics",
+      "url": "https://arxiv.org/rss/quant-ph",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "arXiv_ComputerVision",
+      "url": "https://arxiv.org/rss/cs.CV",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "arXiv_NLP",
+      "url": "https://arxiv.org/rss/cs.CL",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "arXiv_Robotics",
+      "url": "https://arxiv.org/rss/cs.RO",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "arXiv_ Economics",
+      "url": "https://arxiv.org/rss/cs.GT",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Stanford_Encyclopedia",
+      "url": "https://plato.stanford.edu/rssfaq.html",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "PhilPapers",
+      "url": "https://philpapers.org/rss/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "3QuarksDaily",
+      "url": "https://www.3quarksdaily.com/3quarksdaily/rss.xml",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Aeon_Ideas",
+      "url": "https://aeon.co/feed.rss",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Ars_Technica",
+      "url": "https://feeds.arstechnica.com/arstechnica/index",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "VentureBeat_AI",
+      "url": "https://venturebeat.com/category/ai/feed/",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "MIT_TechReview",
+      "url": "https://www.technologyreview.com/feed/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "TechCrunch_Startups",
+      "url": "https://techcrunch.com/startup-feed/",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Science_Daily",
+      "url": "https://www.sciencedaily.com/rss/all.xml",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Phys_org",
+      "url": "https://phys.org/rss-feed/",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "LiveScience",
+      "url": "https://www.livescience.com/feeds/all",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "NewScientist",
+      "url": "https://www.newscientist.com/feed/home/",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "OpenAI_Blog",
+      "url": "https://openai.com/blog/rss/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "DeepMind_Blog",
+      "url": "https://deepmind.com/blog/feed/basic/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Anthropic_Blog",
+      "url": "https://www.anthropic.com/blog/rss.xml",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Google_AI_Blog",
+      "url": "https://blog.research.google/feed/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Microsoft_Research",
+      "url": "https://www.microsoft.com/en-us/research/feed/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Meta_AI_Blog",
+      "url": "https://ai.meta.com/blog/rss/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "The_Gradient",
+      "url": "https://thegradient.pub/rss/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "HuggingFace_Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "OurWorldInData",
+      "url": "https://ourworldindata.org/rss.xml",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "FiveThirtyEight",
+      "url": "https://fivethirtyeight.com/feed/",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "HBR_Ideas",
+      "url": "https://hbr.org/content/hbr/ideaplen/feed",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Economist_Tech",
+      "url": "https://www.economist.com/technology-quarterly/rss.xml",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "FT_Tech",
+      "url": "https://www.ft.com/technology?format=rss",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Lobsters",
+      "url": "https://lobste.rs/rss",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "GitHub_Trending",
+      "url": "https://github.com/growth了一口气/cn",
+      "tier": "C",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "财新",
+      "url": "http://feed.feixunr.com/caixin.xml",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Solidot",
+      "url": "https://www.solidot.org/index.rss",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Expanding_Universe",
+      "url": "https://www.preposterousuniverse.com/feed/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Nautilus",
+      "url": "https://nautil.us/feed/",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Nature_Physics",
+      "url": "https://www.nature.com/nphys/rss",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Nature_ML",
+      "url": "https://www.nature.com/natmachintell/rss",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "PLOS_Biology",
+      "url": "https://journals.plos.org/plosbiology/feed/atom",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "Cell",
+      "url": "https://www.cell.com/cell/current.rss",
+      "tier": "A",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
+    },
+    {
+      "name": "SemanticScholar",
+      "url": "https://api.semanticscholar.org/rss/",
+      "tier": "B",
+      "attempts": 0,
+      "successes": 0,
+      "health_score": 0.5,
+      "last_status": "unknown",
+      "contribution_score": 0.0
     }
   ],
   "config": {
