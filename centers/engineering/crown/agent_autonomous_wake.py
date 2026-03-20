@@ -6,6 +6,7 @@ Cron只负责基础设施：至少有一个智能体存活
 """
 
 import json
+import fcntl
 import os
 import random
 import time
@@ -28,14 +29,20 @@ class AgentWakeSystem:
         self.tasks = self.load_tasks()
         
     def load_agents(self):
-        """加载智能体状态"""
+        """加载智能体状态（持有共享锁直到读完，防止读半写文件）"""
+        f = None
         try:
-            with open(RATINGS_FILE, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                return data.get("agents", {})
+            f = open(RATINGS_FILE, 'r', encoding='utf-8')
+            fcntl.flock(f.fileno(), fcntl.LOCK_SH)
+            data = json.load(f)
+            fcntl.flock(f.fileno(), fcntl.LOCK_UN)
+            return data.get("agents", {})
         except FileNotFoundError:
             print(f"警告：未找到智能体评分文件 {RATINGS_FILE}")
             return {}
+        finally:
+            if f:
+                f.close()
     
     def load_quota(self):
         """加载POST配额"""

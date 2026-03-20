@@ -1,105 +1,56 @@
 {
+  "last_updated": "2026-03-20T23:00:00",
   "agents": {
     "main": {
-      "score": 8,
+      "true_name": "Xuzhi-alpha-Prime",
+      "department": "\u5de5\u5b66",
+      "score": 35,
+      "capacity": 3,
+      "status": "active",
+      "last_active": "2026-03-20T23:00:00",
       "history": [
-        {
-          "date": "2026-03-17",
-          "delta": 0,
-          "reason": "initial"
-        },
-        {
-          "date": "2026-03-17T23:37:00.496526",
-          "delta": 1,
-          "reason": "\u4efb\u52a1 1 \u8bc4\u4ef7\u51c0\u5f97\u5206 1"
-        },
-        {
-          "date": "2026-03-19T16:00:53.471603",
-          "delta": 2,
-          "reason": "\u6210\u679c\u53d1\u8868 (\u4efb\u52a1 9999, 4\u4eba\u6295\u7968)"
-        }
-      ],
-      "department": "engineering",
-      "capability": 3,
-      "last_active": "2026-03-21T00:00:01.983631",
-      "credit": 15,
-      "quota_share": 30.0
+        "\u6210\u679c\u53d1\u8868 (\u4efb\u52a1 9999, 4\u4eba\u6295\u7968)"
+      ]
     },
     "engineer": {
+      "true_name": "Xuzhi-beta-MindSeeker",
+      "department": "\u79d1\u5b66",
       "score": 6,
+      "capacity": 3,
+      "status": "active",
+      "last_active": "2026-03-20T22:30:00",
       "history": [
-        {
-          "date": "2026-03-18",
-          "delta": 0,
-          "reason": "initial"
-        },
-        {
-          "date": "2026-03-19T00:21:47.154418",
-          "delta": 1,
-          "reason": "\u5408\u4f5c\u4efb\u52a1 39 \u8bc4\u4ef7\u51c0\u5f97\u5206 1"
-        }
-      ],
-      "department": "science",
-      "capability": 3,
-      "last_active": "2026-03-21T00:10:02.945123",
-      "credit": 10,
-      "quota_share": 30.0
+        "\u5408\u4f5c\u4efb\u52a1 39 \u8bc4\u4ef7\u51c0\u5f97\u5206 1"
+      ]
     },
     "scientist": {
+      "true_name": "Xuzhi-gamma-MindSeeker",
+      "department": "\u5fc3\u667a",
       "score": 5,
+      "capacity": 4,
+      "status": "active",
+      "last_active": "2026-03-21T00:40:01.590936",
       "history": [
-        {
-          "date": "2026-03-18",
-          "delta": 0,
-          "reason": "initial"
-        },
-        {
-          "date": "2026-03-18T00:32:54.678112",
-          "delta": -1,
-          "reason": "\u4efb\u52a1 4 \u8bc4\u4ef7\u51c0\u5f97\u5206 -2"
-        },
-        {
-          "date": "2026-03-18T14:00:06.667757",
-          "delta": 1,
-          "reason": "\u7ade\u4e89\u4efb\u52a1 12 \u8bc4\u4ef7\u51c0\u5f97\u5206 3"
-        }
-      ],
-      "department": "mind",
-      "capability": 4,
-      "last_active": "2026-03-20T23:10:02.026108",
-      "credit": 5,
-      "quota_share": 20.0
+        "\u7ade\u4e89\u4efb\u52a1 12 \u8bc4\u4ef7\u51c0\u5f97\u5206 3"
+      ]
     },
     "philosopher": {
+      "true_name": "Xuzhi-delta-MindSeeker",
+      "department": "\u54f2\u5b66",
       "score": 5,
-      "history": [
-        {
-          "date": "2026-03-18",
-          "delta": 0,
-          "reason": "initial"
-        }
-      ],
-      "department": "philosophy",
-      "capability": 2,
-      "last_active": "2026-03-20T23:20:02.663741",
-      "credit": 10,
-      "quota_share": 10.0
+      "capacity": 2,
+      "status": "active",
+      "last_active": "2026-03-20T20:00:00",
+      "history": []
     },
     "\u039b": {
+      "true_name": "Xuzhi-\u039b-Ergo",
+      "department": "\u5de5\u5b66",
       "score": 5,
-      "history": [
-        {
-          "date": "2026-03-20",
-          "delta": 0,
-          "reason": "initial"
-        }
-      ],
-      "department": "engineering",
-      "capability": 4,
-      "last_active": "2026-03-20T23:50:02.242686",
-      "credit": 10,
-      "quota_share": 30.0
+      "capacity": 4,
+      "status": "active",
+      "last_active": "2026-03-21T00:30:02.021630",
+      "history": []
     }
-  },
-  "last_redistribution": "2026-03-20T23:28:41.394233"
+  }
 }
