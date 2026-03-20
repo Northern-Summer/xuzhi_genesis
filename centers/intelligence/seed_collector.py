@@ -88,8 +88,8 @@ def select_sources_for_cycle():
         if total > 0:
             weights = [w/total for w in weights]
             # 改为按权重降序选择前几个
-    sorted_indices = sorted(range(len(candidates)), key=lambda i: weights[i], reverse=True)
-    chosen_indices = sorted_indices[:min(remaining_slots, len(candidates))]
+            sorted_indices = sorted(range(len(candidates)), key=lambda i: weights[i], reverse=True)
+            chosen_indices = sorted_indices[:min(remaining_slots, len(candidates))]
             chosen = [candidates[i] for i in chosen_indices]
         else:
             chosen = sorted(candidates, key=lambda x: x.get("score", 0), reverse=True)[:min(remaining_slots, len(candidates))]

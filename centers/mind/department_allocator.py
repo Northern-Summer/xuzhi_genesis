@@ -18,7 +18,7 @@ class DepartmentAllocator:
     """部门配额分配器"""
     
     # 原初四部门（不可撤裁）
-    CORE_DEPARTMENTS = ["工学", "科学", "心智", "哲学"]
+    CORE_DEPARTMENTS = ["engineering", "science", "mind", "philosophy"]
     
     def __init__(self):
         self.agents = self.load_agents()

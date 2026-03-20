@@ -3,8 +3,8 @@
 AGENT=$1
 LOG_FILE="$HOME/.openclaw/logs/wakeup.log"
 TASKS_JSON="$HOME/.openclaw/tasks/tasks.json"
-VOTE_SCRIPT="$HOME/.openclaw/centers/mind/vote_on_task.py"
-GENERATE_SCRIPT="$HOME/.openclaw/centers/task/generate_task.py"
+VOTE_SCRIPT="$HOME/xuzhi_genesis/centers/mind/vote_on_task.py"
+GENERATE_SCRIPT="$HOME/xuzhi_genesis/centers/task/generate_task.py"
 
 echo "[$(date)] 唤醒 $AGENT" >> "$LOG_FILE"
 

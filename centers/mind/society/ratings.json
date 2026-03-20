@@ -11,42 +11,19 @@
         {
           "date": "2026-03-17T23:37:00.496526",
           "delta": 1,
-          "reason": "\u4efb\u52a1 1 \u8bc4\u4ef7\u51c0\u5f97\u5206 1"
+          "reason": "任务 1 评价净得分 1"
         },
         {
           "date": "2026-03-19T16:00:53.471603",
           "delta": 2,
-          "reason": "\u6210\u679c\u53d1\u8868 (\u4efb\u52a1 9999, 4\u4eba\u6295\u7968)"
+          "reason": "成果发表 (任务 9999, 4人投票)"
         }
       ],
-      "department": "mind",
+      "department": "engineering",
       "capability": 3,
       "last_active": "2026-03-20T21:20:04.577171",
-      "credit": 15
-    },
-    "scientist": {
-      "score": 5,
-      "history": [
-        {
-          "date": "2026-03-18",
-          "delta": 0,
-          "reason": "initial"
-        },
-        {
-          "date": "2026-03-18T00:32:54.678112",
-          "delta": -1,
-          "reason": "\u4efb\u52a1 4 \u8bc4\u4ef7\u51c0\u5f97\u5206 -2"
-        },
-        {
-          "date": "2026-03-18T14:00:06.667757",
-          "delta": 1,
-          "reason": "\u7ade\u4e89\u4efb\u52a1 12 \u8bc4\u4ef7\u51c0\u5f97\u5206 3"
-        }
-      ],
-      "department": "science",
-      "capability": 4,
-      "last_active": "2026-03-20T23:10:02.026108",
-      "credit": 5
+      "credit": 15,
+      "quota_share": 30.0
     },
     "engineer": {
       "score": 6,
@@ -59,13 +36,39 @@
         {
           "date": "2026-03-19T00:21:47.154418",
           "delta": 1,
-          "reason": "\u5408\u4f5c\u4efb\u52a1 39 \u8bc4\u4ef7\u51c0\u5f97\u5206 1"
+          "reason": "合作任务 39 评价净得分 1"
         }
       ],
-      "department": "engineering",
+      "department": "science",
       "capability": 3,
       "last_active": "2026-03-20T22:30:03.903308",
-      "credit": 10
+      "credit": 10,
+      "quota_share": 30.0
+    },
+    "scientist": {
+      "score": 5,
+      "history": [
+        {
+          "date": "2026-03-18",
+          "delta": 0,
+          "reason": "initial"
+        },
+        {
+          "date": "2026-03-18T00:32:54.678112",
+          "delta": -1,
+          "reason": "任务 4 评价净得分 -2"
+        },
+        {
+          "date": "2026-03-18T14:00:06.667757",
+          "delta": 1,
+          "reason": "竞争任务 12 评价净得分 3"
+        }
+      ],
+      "department": "mind",
+      "capability": 4,
+      "last_active": "2026-03-20T23:10:02.026108",
+      "credit": 5,
+      "quota_share": 20.0
     },
     "philosopher": {
       "score": 5,
@@ -78,10 +81,11 @@
       ],
       "department": "philosophy",
       "capability": 2,
-      "last_active": "2026-03-20T22:20:04.015271",
-      "credit": 10
+      "last_active": "2026-03-20T23:20:02.663741",
+      "credit": 10,
+      "quota_share": 10.0
     },
-    "\u039b": {
+    "Λ": {
       "score": 5,
       "history": [
         {
@@ -93,8 +97,9 @@
       "department": "engineering",
       "capability": 4,
       "last_active": "2026-03-20T23:04:07.275589",
-      "credit": 10
+      "credit": 10,
+      "quota_share": 30.0
     }
   },
-  "last_updated": "2026-03-19T01:42:06.180820"
+  "last_redistribution": "2026-03-20T23:28:41.394233"
 }

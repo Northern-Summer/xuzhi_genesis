@@ -142,10 +142,10 @@ def main():
 
     # 处理假设验证（如果有 --confirm 参数）
     if task.get("type") == "验证假设" and args.confirm:
-            if task.get("subtype") == "causal_counterfactual":
-                update_from_causal_counterfactual(task, args.confirm)
-            if task.get("subtype") == "counterfactual":
-                update_from_counterfactual(task, args.confirm)
+        if task.get("subtype") == "causal_counterfactual":
+            update_from_causal_counterfactual(task, args.confirm)
+        if task.get("subtype") == "counterfactual":
+            update_from_counterfactual(task, args.confirm)
         hyp = task.get("hypothesis")
         if hyp:
             e1 = hyp.get("entity1")

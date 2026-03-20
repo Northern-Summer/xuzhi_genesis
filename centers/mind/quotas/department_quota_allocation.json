@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-03-20T23:28:41.393852",
+  "total_quota_percent": 100,
+  "mobile_quota_percent": 10,
+  "available_quota_percent": 90,
+  "scale_factor": 1.0,
+  "core_departments": {
+    "engineering": {
+      "quota_percent": 30.0,
+      "original_percent": 30,
+      "scaled": 30.0
+    },
+    "science": {
+      "quota_percent": 30.0,
+      "original_percent": 30,
+      "scaled": 30.0
+    },
+    "mind": {
+      "quota_percent": 20.0,
+      "original_percent": 20,
+      "scaled": 20.0
+    },
+    "philosophy": {
+      "quota_percent": 10.0,
+      "original_percent": 10,
+      "scaled": 10.0
+    }
+  },
+  "new_departments": {
+    "engineering": {
+      "quota_percent": 0,
+      "comment": "新增部门，从剩余0.0%中分配"
+    },
+    "science": {
+      "quota_percent": 0,
+      "comment": "新增部门，从剩余0.0%中分配"
+    },
+    "mind": {
+      "quota_percent": 0,
+      "comment": "新增部门，从剩余0.0%中分配"
+    },
+    "philosophy": {
+      "quota_percent": 0,
+      "comment": "新增部门，从剩余0.0%中分配"
+    }
+  },
+  "mobile_quota": {
+    "percent": 10,
+    "purpose": "应急、创新项目、临时调整"
+  },
+  "validation": {
+    "total_allocated_percent": 100.0,
+    "is_valid": true,
+    "deviation": 0.0
+  }
+}
