@@ -276,3 +276,191 @@ class ModelUnavailable(ModelInterrupt):
 class RateLimitExceeded(ModelInterrupt):
     """速率限制"""
     pass
+
+
+# ============================================================================
+# LiteLLM 实现
+# ============================================================================
+
+import os
+
+
+class LitellmModel(Model):
+    """
+    LiteLLM 模型实现
+    
+    支持:
+    - OpenAI, Anthropic, Google, 本地模型等
+    - 请求缓存
+    - 成本追踪
+    """
+    
+    def __init__(self, config: ModelConfig | None = None):
+        super().__init__(config or ModelConfig())
+        
+        # LiteLLM 配置
+        self._setup_litellm()
+    
+    def _setup_litellm(self):
+        """配置 LiteLLM"""
+        # Lazy import
+        global litellm
+        import litellm
+        
+        # 设置 API key (从环境变量或配置)
+        if self.config.api_key:
+            os.environ[self.config.model_provider.upper() + "_API_KEY"] = self.config.api_key
+        
+        # 禁用详细日志 (除非在 debug 模式)
+        if not self._logger.isEnabledFor(logging.DEBUG):
+            litellm.suppress_debug_messages = True
+    
+    def _query_impl(self, messages: list[dict]) -> dict:
+        """
+        实际查询 LiteLLM
+        
+        Returns:
+            {
+                "role": "assistant", 
+                "content": "...",
+                "extra": {"actions": [], "cost": 0.001}
+            }
+        """
+        try:
+            response = litellm.completion(
+                model=self.config.model_name,
+                messages=messages,
+                api_key=self.config.api_key,
+                max_tokens=self.config.max_tokens,
+                temperature=self.config.temperature,
+            )
+            
+            # 提取响应
+            choice = response["choices"][0]
+            message = choice["message"]
+            
+            # 提取 usage
+            usage = response.get("usage", {})
+            
+            # 估算成本 (LiteLLM 会自动估算)
+            cost = litellm.completion_cost(response) if hasattr(litellm, 'completion_cost') else 0.001
+            
+            # 解析动作 (从 content 中提取工具调用)
+            actions = self._parse_actions(message.get("content", ""))
+            
+            return {
+                "role": message.get("role", "assistant"),
+                "content": message.get("content", ""),
+                "extra": {
+                    "actions": actions,
+                    "cost": cost,
+                    "usage": {
+                        "prompt_tokens": usage.get("prompt_tokens", 0),
+                        "completion_tokens": usage.get("completion_tokens", 0),
+                        "total_tokens": usage.get("total_tokens", 0),
+                    }
+                }
+            }
+            
+        except litellm.RateLimitError as e:
+            raise RateLimitExceeded(str(e)) from e
+        except litellm.Timeout as e:
+            raise QueryTimeout(str(e)) from e
+        except Exception as e:
+            self._logger.error(f"LiteLLM error: {e}")
+            raise
+    
+    def _parse_actions(self, content: str) -> list[dict]:
+        """
+        解析内容中的工具调用
+        
+        格式:
+        <tool_name>bash</tool_name>
+        <tool_input>{"command": "ls"}</tool_input>
+        
+        Returns:
+            [{"tool": "bash", "input": {"command": "ls"}}]
+        """
+        import re
+        import json
+        
+        actions = []
+        
+        # 匹配 <tool_name>...</tool_name><tool_input>...</tool_input>
+        pattern = r'<tool_name>(\w+)</tool_name>\s*<tool_input>(.*?)</tool_input>'
+        
+        for match in re.finditer(pattern, content, re.DOTALL):
+            tool_name = match.group(1)
+            try:
+                tool_input = json.loads(match.group(2))
+            except json.JSONDecodeError:
+                tool_input = {"raw": match.group(2).strip()}
+            
+            actions.append({
+                "tool": tool_name,
+                "input": tool_input,
+            })
+        
+        return actions
+    
+    def format_message(self, role: str, content: str, **kwargs) -> dict:
+        """格式化消息"""
+        return {"role": role, "content": content, **kwargs}
+    
+    def format_observation(self, output: dict, **kwargs) -> dict:
+        """格式化观察结果"""
+        return {
+            "role": "tool",
+            "content": output.get("content", str(output)),
+            **kwargs
+        }
+
+
+# ============================================================================
+# Mock Model (测试用)
+# ============================================================================
+
+class MockModel(Model):
+    """
+    Mock 模型 - 用于测试，不调用真实 API
+    """
+    
+    def __init__(self, config: ModelConfig | None = None, responses: list[dict] | None = None):
+        super().__init__(config or ModelConfig())
+        self._responses = responses or [
+            {
+                "role": "assistant",
+                "content": "I'll help you with that.",
+                "extra": {"actions": [], "cost": 0.001}
+            }
+        ]
+        self._response_index = 0
+    
+    def _query_impl(self, messages: list[dict]) -> dict:
+        """返回预设响应"""
+        if self._response_index < len(self._responses):
+            response = self._responses[self._response_index]
+            self._response_index += 1
+            return response
+        
+        # 默认响应
+        return {
+            "role": "assistant",
+            "content": "Done.",
+            "extra": {"actions": [], "cost": 0.001}
+        }
+    
+    def format_message(self, role: str, content: str, **kwargs) -> dict:
+        return {"role": role, "content": content, **kwargs}
+    
+    def format_observation(self, output: dict, **kwargs) -> dict:
+        return {"role": "tool", "content": output.get("content", str(output)), **kwargs}
+    
+    def set_responses(self, responses: list[dict]):
+        """设置预设响应"""
+        self._responses = responses
+        self._response_index = 0
+    
+    def reset(self):
+        """重置"""
+        self._response_index = 0

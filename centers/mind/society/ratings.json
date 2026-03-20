@@ -64,7 +64,7 @@
       ],
       "department": "engineering",
       "capability": 3,
-      "last_active": "2026-03-20T20:20:04.324621",
+      "last_active": "2026-03-20T21:00:03.138607",
       "credit": 10
     },
     "philosopher": {
@@ -92,7 +92,7 @@
       ],
       "department": "mind",
       "capability": 3,
-      "last_active": "2026-03-20T17:20:03.171286",
+      "last_active": "2026-03-20T20:40:04.835887",
       "credit": 10
     },
     "u": {
@@ -134,7 +134,7 @@
       ],
       "department": "mind",
       "capability": 3,
-      "last_active": "2026-03-20T14:30:02.147379",
+      "last_active": "2026-03-20T20:50:03.561833",
       "credit": 10
     },
     "i": {
