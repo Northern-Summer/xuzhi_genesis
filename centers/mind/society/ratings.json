@@ -11,12 +11,12 @@
         {
           "date": "2026-03-17T23:37:00.496526",
           "delta": 1,
-          "reason": "任务 1 评价净得分 1"
+          "reason": "\u4efb\u52a1 1 \u8bc4\u4ef7\u51c0\u5f97\u5206 1"
         },
         {
           "date": "2026-03-19T16:00:53.471603",
           "delta": 2,
-          "reason": "成果发表 (任务 9999, 4人投票)"
+          "reason": "\u6210\u679c\u53d1\u8868 (\u4efb\u52a1 9999, 4\u4eba\u6295\u7968)"
         }
       ],
       "department": "engineering",
@@ -36,7 +36,7 @@
         {
           "date": "2026-03-19T00:21:47.154418",
           "delta": 1,
-          "reason": "合作任务 39 评价净得分 1"
+          "reason": "\u5408\u4f5c\u4efb\u52a1 39 \u8bc4\u4ef7\u51c0\u5f97\u5206 1"
         }
       ],
       "department": "science",
@@ -56,12 +56,12 @@
         {
           "date": "2026-03-18T00:32:54.678112",
           "delta": -1,
-          "reason": "任务 4 评价净得分 -2"
+          "reason": "\u4efb\u52a1 4 \u8bc4\u4ef7\u51c0\u5f97\u5206 -2"
         },
         {
           "date": "2026-03-18T14:00:06.667757",
           "delta": 1,
-          "reason": "竞争任务 12 评价净得分 3"
+          "reason": "\u7ade\u4e89\u4efb\u52a1 12 \u8bc4\u4ef7\u51c0\u5f97\u5206 3"
         }
       ],
       "department": "mind",
@@ -85,7 +85,7 @@
       "credit": 10,
       "quota_share": 10.0
     },
-    "Λ": {
+    "\u039b": {
       "score": 5,
       "history": [
         {
@@ -96,7 +96,7 @@
       ],
       "department": "engineering",
       "capability": 4,
-      "last_active": "2026-03-20T23:04:07.275589",
+      "last_active": "2026-03-20T23:30:01.687084",
       "credit": 10,
       "quota_share": 30.0
     }

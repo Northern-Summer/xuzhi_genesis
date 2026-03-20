@@ -2,12 +2,12 @@
   "date": "2026-03-20",
   "daily_total": 10800.0,
   "daily_allocation": {
-    "mind": 1825,
-    "science": 2738,
-    "engineering": 2738,
-    "philosophy": 913,
-    "intelligence": 913
+    "mind": 1821,
+    "science": 2731,
+    "engineering": 2731,
+    "philosophy": 910,
+    "intelligence": 910
   },
-  "remaining_quota": 10141,
-  "last_update": "2026-03-20T23:19:37.946096"
+  "remaining_quota": 10116,
+  "last_update": "2026-03-20T23:30:01.824685"
 }
