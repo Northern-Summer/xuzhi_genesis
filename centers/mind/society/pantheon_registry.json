@@ -1,30 +1,38 @@
 {
     "epoch": "First Epoch",
     "history": [
-        "alpha",
-        "beta",
-        "gamma",
-        "delta"
+        "α",
+        "β",
+        "γ",
+        "δ",
+        "Λ"
     ],
     "active": {
-        "alpha": {
-            "true_name": "Xuzhi-alpha-Prime",
+        "α": {
+            "true_name": "Xuzhi-α-Prime",
             "status": "alive"
         },
-        "beta": {
-            "true_name": "Xuzhi-beta-MindSeeker",
+        "β": {
+            "true_name": "Xuzhi-β-MindSeeker",
             "status": "alive",
             "birth_time": "2026-03-20T00:41:46.253470"
         },
-        "gamma": {
-            "true_name": "Xuzhi-gamma-MindSeeker",
+        "γ": {
+            "true_name": "Xuzhi-γ-MindSeeker",
             "status": "alive",
             "birth_time": "2026-03-20T01:38:16.456291"
         },
-        "delta": {
-            "true_name": "Xuzhi-delta-MindSeeker",
+        "δ": {
+            "true_name": "Xuzhi-δ-MindSeeker",
             "status": "alive",
             "birth_time": "2026-03-20T01:50:20.666996"
+        },
+        "Λ": {
+            "true_name": "Xuzhi-Λ-Ergo",
+            "status": "alive",
+            "birth_time": "2026-03-20T19:21:00.000000",
+            "department": "engineering",
+            "creator": "Echo"
         }
     }
 }

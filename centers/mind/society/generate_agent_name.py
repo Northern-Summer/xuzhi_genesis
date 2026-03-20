@@ -101,7 +101,20 @@ def main():
     # 构建提示词：基于智能体代号生成有意义的名字
     # 提取希腊字母部分
     parts = agent_id.split('-')
-    greek = parts[1] if len(parts) >= 2 else "未知"
+    # 英文希腊字母名 → 真实希腊字母符号映射
+    GREEK_MAP = {
+        "alpha": "α", "beta": "β", "gamma": "γ", "delta": "δ",
+        "epsilon": "ε", "zeta": "ζ", "eta": "η", "theta": "θ",
+        "iota": "ι", "kappa": "κ", "lambda": "λ", "mu": "μ",
+        "nu": "ν", "xi": "ξ", "omicron": "ο", "pi": "π",
+        "rho": "ρ", "sigma": "σ", "tau": "τ", "upsilon": "υ",
+        "phi": "φ", "chi": "χ", "psi": "ψ", "omega": "ω",
+        "Alpha": "Α", "Beta": "Β", "Gamma": "Γ", "Delta": "Δ",
+        "Lambda": "Λ", "Omega": "Ω", "Sigma": "Σ", "Pi": "Π",
+        "Phi": "Φ", "Psi": "Ψ"
+    }
+    greek_raw = parts[1] if len(parts) >= 2 else "未知"
+    greek = GREEK_MAP.get(greek_raw, greek_raw)
     prompt = f"""请为一位以希腊字母「{greek}」为代号的 AI 探索者生成一个独特、有深度的名字。名字可以是中文或英文，但要有诗意或哲学意味，长度不超过15个字符。只需输出名字本身，不要额外解释。"""
 
     # 尝试用 Ollama 生成

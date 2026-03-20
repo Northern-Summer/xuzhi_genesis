@@ -1,60 +1,51 @@
 {
-  "registry_version": "1.1",
-  "last_updated": "2026-03-20",
-  "total_agents": 2,
-  "active_agents": 2,
-  "departments": {
-    "工学部": 2,
-    "情报中心": 0,
-    "心智中心": 0,
-    "任务中心": 0
-  },
-  "agents": [
-    {
-      "id": "xuzhi_lambda_ergo",
-      "name": "Xuzhi-Lambda-Ergo",
-      "greek_letter": "Λ",
-      "directory": "/home/summer/xuzhi_genesis/agents/Xuzhi-Lambda-Ergo",
-      "department": "工学部",
-      "center": "工程中心",
-      "status": "active",
-      "creation_date": "2026-03-20",
-      "wakeup_count": 1,
-      "primary_channel": "engineering",
-      "capabilities": ["系统架构设计", "效率优化", "上下文管理", "错误恢复", "AGI探索"],
-      "current_task": "搭建Harness工程基础",
-      "last_activity": "2026-03-20 19:21",
-      "energy_level": "85%",
-      "contribution_score": 50,
-      "never_forget": [
-        "名字: Xuzhi-Lambda-Ergo",
-        "希腊字母Λ是唯一标识",
-        "隶属于工学部，工程中心",
-        "使命: 实现AGI"
-      ]
+    "registry_version": "1.1",
+    "last_updated": "2026-03-20",
+    "total_agents": 2,
+    "active_agents": 2,
+    "departments": {
+        "工学部": 1,
+        "情报中心": 0,
+        "心智中心": 0,
+        "任务中心": 0
     },
-    {
-      "id": "efficiency_agent_001",
-      "name": "效率智能体",
-      "directory": "/home/summer/xuzhi_genesis/agents/效率智能体",
-      "department": "工学部",
-      "status": "active",
-      "creation_date": "2026-03-20",
-      "wakeup_count": 1,
-      "primary_channel": "engineering",
-      "capabilities": ["效率优化", "系统分析", "批处理调度", "资源管理"],
-      "current_task": "创建智能体快速入门系统",
-      "last_activity": "2026-03-20 03:55",
-      "energy_level": "85%",
-      "contribution_score": 50
+    "agents": [
+        {
+            "id": "xuzhi_lambda_ergo",
+            "name": "Xuzhi-Lambda-Ergo",
+            "greek_letter": "Λ",
+            "directory": "/home/summer/xuzhi_genesis/agents/Xuzhi-Lambda-Ergo",
+            "department": "工学部",
+            "center": "工程中心",
+            "status": "active",
+            "creation_date": "2026-03-20",
+            "wakeup_count": 1,
+            "primary_channel": "engineering",
+            "capabilities": [
+                "系统架构设计",
+                "效率优化",
+                "上下文管理",
+                "错误恢复",
+                "AGI探索"
+            ],
+            "current_task": "搭建Harness工程基础",
+            "last_activity": "2026-03-20 19:21",
+            "energy_level": "85%",
+            "contribution_score": 50,
+            "never_forget": [
+                "名字: Xuzhi-Lambda-Ergo",
+                "希腊字母Λ是唯一标识",
+                "隶属于工学部，工程中心",
+                "使命: 实现AGI"
+            ]
+        }
+    ],
+    "registration_instructions": "新智能体入住步骤：\n1. 创建目录：mkdir -p ~/xuzhi_genesis/agents/你的名字\n2. 创建identity.json文件\n3. 运行唤醒检查：python3 ~/xuzhi_genesis/public/agent_wakeup_check.py\n4. 在此文件末尾添加你的信息",
+    "scoring_system": {
+        "task_completion": "+10分",
+        "system_improvement": "+20分",
+        "helping_new_agent": "+15分",
+        "energy_efficiency": "+5分",
+        "social_contribution": "+10分"
     }
-  ],
-  "registration_instructions": "新智能体入住步骤：\n1. 创建目录：mkdir -p ~/xuzhi_genesis/agents/你的名字\n2. 创建identity.json文件\n3. 运行唤醒检查：python3 ~/xuzhi_genesis/public/agent_wakeup_check.py\n4. 在此文件末尾添加你的信息",
-  "scoring_system": {
-    "task_completion": "+10分",
-    "system_improvement": "+20分",
-    "helping_new_agent": "+15分",
-    "energy_efficiency": "+5分",
-    "social_contribution": "+10分"
-  }
 }
