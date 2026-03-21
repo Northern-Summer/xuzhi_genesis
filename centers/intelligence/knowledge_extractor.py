@@ -97,9 +97,38 @@ def call_ollama(prompt):
         print(f"Ollama API 失败: {e}")
         return ""
 
+PREDICATE_VOCABULARY = [
+    "supports",       # 论据/数据支持论点
+    "contradicts",   # 否定/矛盾
+    "uses",           # 使用/采用方法
+    "explains",       # 解释现象
+    "predicts",       # 预测结果
+    "measures",       # 测量/量化
+    "develops",       # 发展/提出
+    "critiques",      # 批评/质疑
+    "applies",        # 应用于
+    "based_on",       # 基于
+    "demonstrates",   # 论证/展示
+    "correlates_with",# 相关
+    "causes",         # 因果导致
+    "part_of",        # 组成部分
+    "precedes",       # 时间先于
+    "refines",        # 精炼/细化
+    "extends",        # 扩展
+    "validates",      # 验证
+    "introduces",     # 引入/介绍
+]
+
 def extract_with_ollama(text):
     """使用 Ollama 提取实体和关系（可选）"""
-    prompt = f"""从以下文本中提取实体和它们之间的关系。返回 JSON 格式，包含 entities 列表（每个元素有 name 和 type）和 relations 列表（每个元素有 subject, object, relation_type, is_causal）。只返回 JSON，不要其他内容。
+    pred_list = ", ".join(PREDICATE_VOCABULARY)
+    prompt = f"""从以下文本中提取实体和它们之间的关系。
+
+要求：
+1. 只使用以下语义谓词（不可用"related"）：{pred_list}
+2. 每个关系必须从上述列表中选择最准确的一个谓词
+3. 实体类型：technology, concept, organization, person, method, finding, data
+4. 只返回 JSON：{{"entities": [{{"name": "...", "type": "..."}}], "relations": [{{"subject": "...", "object": "...", "relation_type": "...", "is_causal": true/false}}]}}
 
 文本：{text[:3000]}
 """
