@@ -1,0 +1,21 @@
+{
+  "version": "2026-03-22",
+  "crons": [
+    {
+      "name": "Lambda Watchdog",
+      "schedule": "*/5 * * * *",
+      "command": "bash /home/summer/watchdog.sh",
+      "kind": "systemEvent",
+      "enabled": true,
+      "note": "健康检查，零 token 消耗，不依赖 workspace/tmp"
+    },
+    {
+      "name": "Lambda Self-Heal",
+      "schedule": "0 * * * *",
+      "command": "bash /home/summer/self_heal.sh fix",
+      "kind": "systemEvent",
+      "enabled": true,
+      "note": "自愈检查，含 cron enabled 检查和 tmp 目录监控"
+    }
+  ]
+}

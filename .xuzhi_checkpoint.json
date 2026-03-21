@@ -1,0 +1,43 @@
+{
+  "version": "2026-03-22T00:41:00Z",
+  "description": "Gateway重启前最后状态 — 新session必须先读此文件",
+  "gateway": {
+    "url": "http://localhost:8765",
+    "port": 8765,
+    "status": "alive",
+    "check_cmd": "curl -s --max-time 3 http://localhost:8765/ -o /dev/null -w HTTP:%{http_code}"
+  },
+  "crons": [
+    {
+      "name": "Lambda Watchdog",
+      "schedule": "*/5 * * * *",
+      "command": "bash /home/summer/watchdog.sh",
+      "kind": "systemEvent",
+      "id": "TODO_FILL_AFTER_CRON_TOOL_ADD"
+    },
+    {
+      "name": "Lambda Self-Heal",
+      "schedule": "0 * * * *",
+      "command": "bash /home/summer/self_heal.sh fix",
+      "kind": "systemEvent",
+      "id": "TODO_FILL_AFTER_CRON_TOOL_ADD"
+    }
+  ],
+  "scripts": {
+    "watchdog": "/home/summer/watchdog.sh",
+    "self_heal": "/home/summer/self_heal.sh",
+    "cron_restore": "/home/summer/cron_restore.sh",
+    "lessons": "/home/summer/.xuzhi_lessons.md",
+    "lessons_runner": "/home/summer/.xuzhi_lessons.sh",
+    "checkpoint_reader": "/home/summer/.xuzhi_checkpoint.py",
+    "cron_spec": "/home/summer/.cron_spec.json",
+    "autorapatch": "/home/summer/autorapatch/patch_generator.py"
+  },
+  "DO_NOT_USE_PATHS": [
+    "workspace/tmp/watchdog.sh",
+    "workspace/tmp/self_heal.sh",
+    "workspace/tmp/autorapatch/"
+  ],
+  "last_lessons_check": "2026-03-22T00:41:00Z",
+  "recovery_action": "bash /home/summer/cron_restore.sh"
+}
