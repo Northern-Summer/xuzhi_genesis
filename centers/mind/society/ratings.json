@@ -6,7 +6,7 @@
       "department": "engineering",
       "capacity": 3,
       "status": "active",
-      "last_active": "2026-03-21T12:00:01.824741"
+      "last_active": "2026-03-21T12:20:01.679946"
     },
     "engineer": {
       "score": 3,
@@ -20,7 +20,7 @@
       "department": "science",
       "capacity": 4,
       "status": "active",
-      "last_active": "2026-03-21T12:10:01.365180"
+      "last_active": "2026-03-21T12:30:02.150233"
     },
     "philosopher": {
       "score": 3,
