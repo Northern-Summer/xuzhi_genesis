@@ -1,0 +1,44 @@
+# === Xuzhi Genesis .gitattributes ===
+# GitHub 专业最佳实践
+
+# ── 行尾标准化（跨平台一致）────────────────────────────
+*               text=auto
+
+# 源码：LF
+*.py            eol=lf
+*.sh            eol=lf
+*.bash          eol=lf
+*.zsh           eol=lf
+*.yaml          eol=lf
+*.yml           eol=lf
+*.json          eol=lf
+*.md            eol=lf
+*.txt           eol=lf
+*.Makefile      eol=lf
+Dockerfile      eol=lf
+
+# Windows 脚本：CRLF
+*.bat           eol=crlf
+*.cmd           eol=crlf
+*.ps1           eol=crlf
+
+# 二进制：不处理
+*.png           binary
+*.jpg           binary
+*.gif           binary
+*.ico           binary
+*.pdf           binary
+*.zip           binary
+*.tar.gz        binary
+*.db            binary
+*.sqlite*       binary
+
+# ── 合并策略 ───────────────────────────────────────────
+# knowledge.db 和 ratings.json 使用 theirs 合并策略（远程优先）
+*.db             merge=binary
+*.sqlite*        merge=binary
+ratings.json     merge=binary
+
+# ── 过滤器（可选）──────────────────────────────────────
+# 检出时自动转换行尾
+# 提交时自动规范化

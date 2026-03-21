@@ -1,75 +1,93 @@
-# Byte-compiled / optimized / DLL files
+# === Xuzhi Genesis .gitignore ===
+# 专业标准：避免噪声、避免密钥泄露、避免大文件
+
+# ── 系统级 ──────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Python ─────────────────────────────────────────────
 __pycache__/
 *.py[cod]
-*$py.class
 *.so
-
-# Distribution / packaging
 .Python
-build/
-dist/
 *.egg-info/
-
-# Virtual environments
+dist/
+build/
+.eggs/
+*.egg
+.venv/
 venv/
-env/
 ENV/
-.venv
+.env
 
-# IDE
-.vscode/
-.idea/
+# ── Node ────────────────────────────────────────────────
+node_modules/
+*.log
+npm-debug.log*
+
+# ── 大型数据文件（不进入版本库）─────────────────────────
+# knowledge.db 是共享知识库，每次不同机器 clone 后独立生成
+*.db
+*.sqlite
+*.sqlite3
+
+# Seeds 是 RSS 采集的中间产物，实时变化
+seeds/
+feeds/
+library/                    # 已知乱码目录，废弃
+
+# ── 个人配置（禁止提交）────────────────────────────────
+*.local
+.env
+.env.*
+credentials*.md
+api_credentials.md
+*.local.yaml
+config/local/
+
+# ── 运行时产物 ─────────────────────────────────────────
+*.tmp
 *.swp
 *.swo
 *~
-
-# Node (if any)
-node_modules/
-package-lock.json
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-logs/
-
-# Credentials & Secrets (NEVER COMMIT)
-credentials/
-*.pem
-*.key
-.env
-.env.*
-secrets/
-token*
-
-# Backups (local only)
-backups/*.tar.gz
-backups/*.zip
-
-# Temporary files
-*.tmp
-*.bak
-*.bak.*
-.cache/
-
-# OpenClaw (workspace is synced separately)
-.openclaw/logs/
-.openclaw/sessions/
-.openclaw/agents/*/sessions/sessions.json
-
-# Python bytecode cache
-__pycache__/
-*.pyc
-*.pyo
+.mypy_cache/
 .pytest_cache/
+.turbo/
+.hypothesis/
+*.bak
 
-# Jupyter
-.ipynb_checkpoints/
+# ── OpenClaw workspace（workspace 独立管理）─────────────
+.home/.openclaw/workspace-xuzhi-*/
+.home/.openclaw/agents/xuzhi-*/
+.home/.openclaw/sessions/
+.home/.openclaw/memory/*/
+.home/.openclaw/cron/
 
-# OS temporary files
-.fseventsd/
-.spotlight/
-.trashes/
-.Spotlight-V100/
+# ── Crown 部门运行时数据 ────────────────────────────────
+# queue.json / quota_*.json 是执行时动态生成
+centers/engineering/crown/queue.json
+centers/engineering/crown/quota_*.json
+centers/engineering/crown/leaderboard.md
+
+# ratings 是系统运行数据，不适合版本化
+centers/mind/society/ratings.json
+centers/mind/society/ratings_meta.json
+centers/mind/society/intelligence_reader_state.json
+
+# ── 临时循环数据 ───────────────────────────────────────
+centers/intelligence/config/cycle_*.json
+centers/intelligence/config/feeds/
+*.autora_state*
+
+# ── IDE ───────────────────────────────────────────────
+.idea/
+.vscode/
+*.sublime-*
+
+# ── 压缩包 / 导出文件 ─────────────────────────────────
+*.zip
+*.tar.gz
+*.rar
+*.7z
+exports/
