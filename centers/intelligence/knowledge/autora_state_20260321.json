@@ -1,16 +1,14 @@
 {
-  "status": "completed",
-  "last_run": "2026-03-21T19:02:00+08:00",
-  "total_seeds": 4,
-  "processed_seeds": 4,
-  "seed_tasks_completed": [
-    "OpenAI全自动AI研究员",
-    "DEAF基准测试",
-    "LIME持续自我改进方法",
-    "Bennett与Brassard量子密码学"
-  ],
-  "entity_tasks": 0,
-  "entities_added": 4,
-  "knowledge_base_entity_count": 9468,
-  "output_location": "knowledge/autora_research_report_20260321.md"
+  "last_run": "2026-03-21T13:04:00Z",
+  "tasks_processed": 6,
+  "research_items_found": 18,
+  "seeds_processed": 23,
+  "knowledge_gaps_identified": 6,
+  "processed_seeds": [
+    "arXiv:2603.18048",
+    "arXiv:2603.18073",
+    "arXiv:2603.18085",
+    "arXiv:2603.18104",
+    "arXiv:2603.18122"
+  ]
 }
