@@ -1,16 +1,34 @@
 {
   "queue": [
+    "main",
+    "scientist",
     "engineer",
+    "main",
+    "engineer",
+    "scientist",
+    "scientist",
+    "\u039b",
+    "main",
+    "\u039b",
+    "scientist",
+    "engineer",
+    "\u039b",
+    "scientist",
+    "\u039b",
+    "scientist",
+    "scientist",
+    "philosopher",
     "engineer",
     "main",
     "\u039b",
+    "engineer",
     "main",
-    "philosopher",
     "engineer",
     "scientist",
+    "philosopher",
     "\u039b"
   ],
-  "generated_at": "2026-03-21T00:26:56.483236",
+  "generated_at": "2026-03-21T11:50:02.242622",
   "total_wakeups": 30,
-  "remaining_quota": 10049
+  "remaining_quota": 9137
 }
