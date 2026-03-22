@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-21T12:56:39.721038",
+  "last_updated": "2026-03-22T20:43:55.234004",
   "count": 3,
   "lessons": [
     {
@@ -7,7 +7,7 @@
       "from_agent": "Λ",
       "original_task": "四指令执行：ClaWiser注入+双系统保护+反馈积累+前史编写",
       "feedback": "positive",
-      "extracted_at": "2026-03-21T12:56:39.720797",
+      "extracted_at": "2026-03-22T20:43:55.233938",
       "confidence": 1
     },
     {
@@ -15,7 +15,7 @@
       "from_agent": "Λ",
       "original_task": "三指令：package.json确认+情报读取注入+Git重推",
       "feedback": "positive",
-      "extracted_at": "2026-03-21T12:56:39.720832",
+      "extracted_at": "2026-03-22T20:43:55.233950",
       "confidence": 1
     },
     {
@@ -23,7 +23,7 @@
       "from_agent": "Λ",
       "original_task": "三级应急响应协议：正常态+救援态+紧急态注入所有Agent",
       "feedback": "positive",
-      "extracted_at": "2026-03-21T12:56:39.720841",
+      "extracted_at": "2026-03-22T20:43:55.233952",
       "confidence": 1
     }
   ]

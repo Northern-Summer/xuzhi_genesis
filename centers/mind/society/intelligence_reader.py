@@ -100,5 +100,28 @@ def main():
 
     save_state(seed.name, now)
 
+    # === 系统境况报告 ===
+    import subprocess, json
+    report_file = Path.home() / ".xuzhi_memory" / "system_situation_report.json"
+    if report_file.exists():
+        try:
+            with open(report_file) as f:
+                sr = json.load(f)
+            s = sr.get("system", {})
+            print("\n" + "="*48)
+            print("🌍 系统境况报告")
+            print("="*48)
+            print(f"  Gateway: {s.get("gateway", "?")}")
+            print(f"  Genesis: {s.get("genesis_hash", "?")}")
+            d = sr.get("duty", {})
+            for role, st in d.items():
+                print(f"  {role}: {st.get("current", "?")} ({st.get("since", "")[:10]})")
+            print("  Challenges:")
+            for c in sr.get("challenges", [])[:3]:
+                print(f"    [{c.get("severity", "?"):^6}] {c.get("description", "")}")
+            print("="*48)
+        except Exception as e:
+            print(f"[系统境况读取失败: {e}]")
+
 if __name__ == "__main__":
     main()
