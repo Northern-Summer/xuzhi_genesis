@@ -28,21 +28,15 @@ is_healthy() {
 # 通知 Λ 写预 checkpoint（重启前）
 request_lambda_precheckpoint() {
     log "请求 Λ 保存当前任务状态..."
+    local ts now
+    ts=$(date +%s)
     openclaw system event \
         --text "[Λ-WATCHDOG] Gateway 即将重启。请立即将当前任务状态写入 $CHECKPOINT，格式如下，然后回复 DONE:
 
-{
-  \"task\": \"任务名\",
-  \"task_detail\": \"具体在做什么\",
-  \"phase\": \"阶段\",
-  \"timestamp\": \"$(date +%s)\",
-  \"last_action\": \"最后一步动作\",
-  \"next_action\": \"下一步要做什么\",
-  \"status\": \"in_progress\"
-}
+{\n  \"task\": \"任务名\",\n  \"task_detail\": \"具体在做什么\",\n  \"phase\": \"阶段\",\n  \"timestamp\": \"$ts\",\n  \"last_action\": \"最后一步动作\",\n  \"next_action\": \"下一步要做什么\",\n  \"status\": \"in_progress\"\n}
 
-若当前无任务，写入 {\"task\":\"idle\",\"status\":\"idle\",\"timestamp\":\"$(date +%s)\"}。立即执行，不要解释。" \
-        --timeout 30000 --json 2>/dev/null
+若当前无任务，写入 {\"task\":\"idle\",\"status\":\"idle\",\"timestamp\":\"$ts\"}。立即执行，不要解释。" \
+        --timeout 30000 --json 2>&1 | tail -1
     log "已发送预 checkpoint 请求，等待响应（最多 ${PRECHECK_TIMEOUT}s）..."
 }
 
@@ -58,8 +52,9 @@ wait_for_checkpoint() {
         sleep 2
         (( waited += 2 ))
     done
-    log "⚠️ Λ 未在 ${PRECHECK_TIMEOUT}s 内响应，写入空 checkpoint"
-    echo "{\"task\":\"unknown\",\"status\":\"unconfirmed\",\"timestamp\":\"$(date +%s)\"}" > "$CHECKPOINT"
+    log "⚠️ Λ 未在 ${PRECHECK_TIMEOUT}s 内响应，写入 fallback checkpoint"
+    # Λ 未响应，可能是忙碌或已死，写入 fallback 状态供恢复时参考
+    echo "{\"task\":\"unknown\",\"status\":\"unconfirmed\",\"timestamp\":\"$(date +%s)\",\"note\":\"Λ did not respond to pre-checkpoint request\"}" > "$CHECKPOINT"
     return 1
 }
 
