@@ -60,7 +60,14 @@ SYSTEM_PROMPT = """你是一个高级系统工程师（Xuzhi-Lambda-Ergo），�
 def call_llm(pattern_id: str, summary: str, root_cause: str, confidence: float) -> str:
     """调用 MaaS LLM 生成补丁脚本"""
     if not LLM_API_KEY:
-        return f"# LLM_API_KEY not set — auto-patch disabled for {pattern_id}"
+        # P0-3: 写 flag 文件而非静默跳过，使 operator 可感知系统停摆
+        flag_path = PATCHES_DIR / f"nopatch_{pattern_id}.flag"
+        flag_path.write_text(
+            f"# {datetime.utcnow().isoformat()}Z\n"
+            f"# LLM_API_KEY missing — auto-patch disabled for {pattern_id}\n"
+            f"# Root cause: {root_cause}\n"
+        )
+        return f"# LLM_API_KEY not set — nopatch flag written: {flag_path}"
 
     user_prompt = SYSTEM_PROMPT.format(
         summary=summary,

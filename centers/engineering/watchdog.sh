@@ -21,6 +21,30 @@ is_healthy() {
     curl -s --connect-timeout 3 "http://localhost:18789/health" 2>&1 | grep -q "ok\|200"
 }
 
+# ── P2-1: OpenClaw auth token 健康检查 ──────────────
+check_auth_token() {
+    local output ret
+    output=$(openclaw status 2>&1); ret=$?
+    if (( ret != 0 )) || echo "$output" | grep -qi "auth\|token\|unauthorized\|401"; then
+        log "⚠️ AUTH TOKEN 问题检测: exit=$ret"
+        echo "$output" | grep -qi "auth\|token\|unauthorized\|401" && log "  → 确认: output 含 auth 关键词"
+        # 尝试刷新 token（如果用的是 gpg 加密备份）
+        local gpg_token="${HOME}/.xuzhi_memory/auth_token.gpg"
+        if [[ -f "$gpg_token" ]]; then
+            log "  → 发现 gpg 加密 token 备份，尝试解密恢复..."
+            local tmp_token
+            tmp_token=$(gpg -d "$gpg_token" 2>/dev/null || true)
+            if [[ -n "$tmp_token" ]]; then
+                log "  → Token 解密成功（需手动更新 openclaw config）"
+            else
+                log "  → Token 解密失败"
+            fi
+        fi
+        return 1
+    fi
+    return 0
+}
+
 # ============================================================
 # Λ 任务状态读写（通过 openclaw system event 触发 Λ 写文件）
 # ============================================================
@@ -120,6 +144,11 @@ check_lambda_session() {
 # ============================================================
 main() {
     log "========== Watchdog 触发 =========="
+
+    # P2-1: 先检查 auth token（token 问题是 WSL2 重启后最常见的静默故障）
+    if ! check_auth_token; then
+        log "⚠️ Auth token 检查失败，但继续主流程（允许人工干预）"
+    fi
 
     if is_healthy; then
         log "Gateway 健康 ✅"
