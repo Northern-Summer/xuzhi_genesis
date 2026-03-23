@@ -65,5 +65,13 @@
     "pattern": "System:_[202",
     "last_seen": "2026-03-23T16:39:15.147210",
     "analysis": "Thinking...\nOkay, let's tackle this. The user provided an error log snippet and wants me to follow the specific output format. The input is the error log segment, and I need to generate the required response.\n\nFirst, I need to parse the input. The error log mentions a system restart related to gateway restart, some commands like openclaw doctor, and mentions checking a checkpoint file. The output format requires three sections: 根因 (root cause), 修复动作 (repair actions), 置信度 (confidence level), and "
+  },
+  "✅_有东西在跑_❌_没有": {
+    "root_cause": "",
+    "fix": "",
+    "confidence": "medium",
+    "pattern": "✅_有东西在跑_❌_没有",
+    "last_seen": "2026-03-23T17:37:49.852832",
+    "analysis": "Thinking...\nOkay, let's tackle this. The user provided a specific input which is an error log snippet, and they want me to process it according to the given output format. The task is to output three sections: 根因 (root cause), 修复动作 (repair actions), 置信度 (confidence level), and 补充 (optional supplement). The example they gave had a specific structure, so I need to follow that strictly.\n\nFirst, looking at the input error log provided: \"错误日志片段\" is the input. The user wants the output in the specifie"
   }
 }
