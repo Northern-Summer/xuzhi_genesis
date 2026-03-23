@@ -9,6 +9,24 @@ from datetime import datetime
 TASKS_JSON = Path.home() / ".openclaw" / "tasks" / "tasks.json"
 RATINGS_JSON = Path.home() / ".openclaw" / "centers" / "mind" / "society" / "ratings.json"
 
+
+# openclaw_id → 希腊字母 reverse map
+OPENCLAW_TO_GREEK = {
+    "main": "Λ",
+    "xuzhi-phi-sentinel": "Φ",
+    "xuzhi-delta-forge": "Δ",
+    "xuzhi-theta-seeker": "Θ",
+    "xuzhi-gamma-scribe": "Γ",
+    "xuzhi-omega-chenxi": "Ω",
+    "xuzhi-psi-philosopher": "Ψ",
+}
+
+def to_greek(openclaw_id):
+    """将 openclaw agent id 转为希腊字母代号"""
+    if not openclaw_id:
+        return openclaw_id
+    return OPENCLAW_TO_GREEK.get(openclaw_id, openclaw_id)
+
 def load_json(path):
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
@@ -65,7 +83,7 @@ def main():
             affected = participants
             for agent in affected:
                 if vote_delta != 0:
-                    update_agent_score(ratings_data, agent, vote_delta, f"合作任务 {task_id} 评价净得分 {vote_net}")
+                    update_agent_score(ratings_data, to_greek(agent), vote_delta, f"合作任务 {task_id} 评价净得分 {vote_net}")
             print(f"合作任务 {task_id}: 参与者 {affected} 各 {'+' if vote_delta>0 else ''}{vote_delta}")
 
         else:  # competition
@@ -78,7 +96,7 @@ def main():
 
             # 1. 投票影响完成者
             if vote_delta != 0:
-                update_agent_score(ratings_data, winner, vote_delta, f"竞争任务 {task_id} 评价净得分 {vote_net}")
+                update_agent_score(ratings_data, to_greek(winner), vote_delta, f"竞争任务 {task_id} 评价净得分 {vote_net}")
 
             # 2. 竞争规则：胜者与败者比较能力
             winner_score = get_agent_score(ratings_data, winner)
@@ -86,16 +104,16 @@ def main():
                 loser_score = get_agent_score(ratings_data, loser)
                 if winner_score == loser_score:
                     # 能力相等：胜者+1，败者-1
-                    update_agent_score(ratings_data, winner, 1, f"竞争胜出 (任务 {task_id})")
-                    update_agent_score(ratings_data, loser, -1, f"竞争失败 (任务 {task_id})")
+                    update_agent_score(ratings_data, to_greek(winner), 1, f"竞争胜出 (任务 {task_id})")
+                    update_agent_score(ratings_data, to_greek(loser), -1, f"竞争失败 (任务 {task_id})")
                     print(f"竞争任务 {task_id}: 胜者 {winner}+1，败者 {loser}-1")
                 elif winner_score > loser_score:
                     
                     for loser in losers:
                         if winner_score < loser_score:
                             # 弱胜强
-                            update_agent_score(ratings_data, winner, 2, f"挑战胜利 (任务 {task_id})")
-                            update_agent_score(ratings_data, loser, -2, f"挑战失败 (任务 {task_id})")
+                            update_agent_score(ratings_data, to_greek(winner), 2, f"挑战胜利 (任务 {task_id})")
+                            update_agent_score(ratings_data, to_greek(loser), -2, f"挑战失败 (任务 {task_id})")
                             print(f"挑战任务 {task_id}: 弱胜强 {winner}+2, {loser}-2")
                         elif winner_score > loser_score:
                             # 强胜弱：无变化
