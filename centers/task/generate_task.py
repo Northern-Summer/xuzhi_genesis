@@ -140,6 +140,8 @@ def main():
         "department": task_info.get("department", dept),
         "mode": "competition" if task_info.get("type") == "验证假设" else "cooperation",
         "description": task_info["description"],
+        "acceptance_criteria": task_info.get("acceptance_criteria", "完成任务核心目标，结果可验证"),
+        "completion_report": None,
         "created": datetime.now().isoformat(),
         "deadline": (datetime.now() + timedelta(days=1)).isoformat(),
         "status": "等待",

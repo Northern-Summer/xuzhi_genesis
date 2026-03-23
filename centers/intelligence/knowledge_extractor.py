@@ -69,7 +69,8 @@ CAUSAL_KEYWORDS = [
 ]
 
 # 是否使用本地模型（若安装 ollama 且模型可用，可设为 True）
-USE_OLLAMA = False  # Ollama 未运行，使用正则模式
+USE_OLLAMA = True  # Ollama 已运行，使用 qwen3.5:4b
+OLLAMA_MODEL = "qwen3.5:4b"
 
 def get_processed_seeds():
     if PROCESSED_FILE.exists():
@@ -91,7 +92,7 @@ def call_ollama(prompt):
         data=body, headers={"Content-Type": "application/json"}, method="POST"
     )
     try:
-        with urllib.request.urlopen(req, timeout=90) as resp:
+        with urllib.request.urlopen(req, timeout=180) as resp:
             return json.loads(resp.read())["response"].strip()
     except Exception as e:
         print(f"Ollama API 失败: {e}")

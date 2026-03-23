@@ -87,6 +87,7 @@ def main():
     parser.add_argument('--calls', type=int, default=1, help='模型调用次数')
     parser.add_argument('--seeds', nargs='+', help='引用的种子文件名（可多个）')
     parser.add_argument('--confirm', choices=['yes', 'no'], help='对于假设任务，验证结果')
+    parser.add_argument('--report', default='', help='完成报告（摘要，不少于100字）')
     args = parser.parse_args()
 
     try:
@@ -163,6 +164,10 @@ def main():
         # 如果没有提供 --confirm，但任务是验证假设，我们仍然可以尝试用成功标志（默认 true）更新
         if task.get("type") == "验证假设":
             update_knowledge_from_verification(task, True)
+
+    # 完成报告
+    if args.report:
+        task["completion_report"] = args.report
 
     task["completion_time"] = datetime.now().isoformat()
     task["last_updated"] = datetime.now().isoformat()
