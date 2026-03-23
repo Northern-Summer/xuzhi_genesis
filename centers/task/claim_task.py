@@ -10,7 +10,7 @@ from pathlib import Path
 from datetime import datetime
 
 TASKS_JSON = Path.home() / ".openclaw" / "tasks" / "tasks.json"
-RATINGS_JSON = Path.home() / ".openclaw" / "centers" / "mind" / "society" / "ratings.json"
+RATINGS_JSON = Path.home() / "xuzhi_genesis" / "centers" / "mind" / "society" / "ratings.json"
 
 def load_json(path):
     with open(path) as f:
