@@ -177,15 +177,22 @@ def extract_with_regex(text):
 def extract_entities_and_relations(text, source_seed):
     """主提取函数：优先使用 Ollama（若启用），否则用正则"""
     if USE_OLLAMA:
-        entities, relations = extract_with_ollama(text)
-        if entities:
+        raw_entities, relations = extract_with_ollama(text)
+        if raw_entities:
+            # 标准化 entities：可能是 dict list 或 string list
+            entities = []
+            for e in raw_entities:
+                if isinstance(e, dict):
+                    entities.append(e.get('name', str(e)))
+                else:
+                    entities.append(str(e))
             # 转换 relations 格式为 (subj, obj, rel_type, is_causal)
             formatted_relations = []
             for r in relations:
-                subj = r.get('subject')
-                obj = r.get('object')
-                rel_type = r.get('relation_type', 'related')
-                is_causal = r.get('is_causal', False)
+                subj = r.get('subject') if isinstance(r, dict) else None
+                obj = r.get('object') if isinstance(r, dict) else None
+                rel_type = r.get('relation_type', 'related') if isinstance(r, dict) else 'related'
+                is_causal = r.get('is_causal', False) if isinstance(r, dict) else False
                 if subj and obj:
                     formatted_relations.append((subj, obj, rel_type, is_causal))
             return entities, formatted_relations
