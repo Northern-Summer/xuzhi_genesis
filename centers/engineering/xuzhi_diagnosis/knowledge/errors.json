@@ -145,5 +145,13 @@
     "pattern": "OOM|heap limit|Reached heap limit",
     "last_seen": "2026-03-23",
     "analysis": "来源: GitHub #41778/#42662"
+  },
+  "龙虾就是openclaw": {
+    "root_cause": "<一句话描述根因>",
+    "fix": "<编号列表，每个动作一行>",
+    "confidence": "置信度",
+    "pattern": "龙虾就是openclaw",
+    "last_seen": "2026-03-23T17:59:52.769853",
+    "analysis": "Thinking...\nOkay, let's tackle this. The user provided an input which is a long error log snippet, and I need to process it according to the specified output format. The task is to output three sections: 根因 (root cause), 修复动作 (repair actions), 置信度 (confidence level), and 补充 (supplementary info), all strictly following the format. Also, the output must not have any extra text, just direct output.\n\nFirst, I need to parse the input error log provided. The input starts with \"龙虾就是openclaw...\" which s"
   }
 }
