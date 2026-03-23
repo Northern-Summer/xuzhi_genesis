@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 
 XUZHI_HOME = Path.home() / 'xuzhi_genesis'
 RATINGS_JSON = XUZHI_HOME / 'centers' / 'mind' / 'society' / 'ratings.json'
-DEPARTMENTS_JSON = Path.home() / '.openclaw' / 'centers' / 'engineering' / 'crown' / 'departments.json'
+DEPARTMENTS_JSON = Path.home() / 'xuzhi_genesis' / 'centers' / 'engineering' / 'crown' / 'departments.json'
 AGENTS_DIR = Path.home() / '.openclaw' / 'agents'
 ARCHIVE_DIR = Path.home() / '.openclaw' / 'archive' / 'agents'
 BROADCAST_FILE = Path.home() / '.openclaw' / 'workspace' / 'broadcast.md'
