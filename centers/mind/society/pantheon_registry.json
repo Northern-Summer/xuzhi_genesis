@@ -10,19 +10,28 @@
       "name": "Engineering Center",
       "path": "centers/engineering/",
       "department": "Engineering",
-      "agents": ["lambda_ergo", "sentinel", "forge"]
+      "agents": [
+        "lambda_ergo",
+        "sentinel",
+        "forge"
+      ]
     },
     "intelligence": {
-      "name": "Intelligence Center", 
+      "name": "Intelligence Center",
       "path": "centers/intelligence/",
       "department": "Science",
-      "agents": ["theta_seeker", "phi_scribe"]
+      "agents": [
+        "theta_seeker",
+        "phi_scribe"
+      ]
     },
     "mind": {
       "name": "Mind Center",
       "path": "centers/mind/",
       "department": "Mind",
-      "agents": ["omega_chenxi"]
+      "agents": [
+        "omega_chenxi"
+      ]
     },
     "task": {
       "name": "Task Center",
@@ -32,10 +41,33 @@
     }
   },
   "departments": {
-    "Engineering": { "center": "engineering", "agents": ["lambda_ergo", "sentinel", "forge"] },
-    "Science": { "center": "intelligence", "agents": ["theta_seeker", "phi_scribe"] },
-    "Philosophy": { "center": "mind", "agents": ["psi_philosopher"] },
-    "Mind": { "center": "mind", "agents": ["omega_chenxi"] }
+    "Engineering": {
+      "center": "engineering",
+      "agents": [
+        "lambda_ergo",
+        "sentinel",
+        "forge"
+      ]
+    },
+    "Science": {
+      "center": "intelligence",
+      "agents": [
+        "theta_seeker",
+        "phi_scribe"
+      ]
+    },
+    "Philosophy": {
+      "center": "mind",
+      "agents": [
+        "psi_philosopher"
+      ]
+    },
+    "Mind": {
+      "center": "mind",
+      "agents": [
+        "omega_chenxi"
+      ]
+    }
   },
   "agents": [
     {
@@ -57,10 +89,11 @@
       "title": "哨兵",
       "center": "engineering",
       "department": "Engineering",
-      "status": "pending_activation",
+      "status": "active",
       "openclaw_id": "xuzhi-sentinel",
       "role": "守卫 / 监控 / 自愈触发",
-      "registered": "2026-03-21"
+      "registered": "2026-03-21",
+      "activated_at": "2026-03-23T19:36:42.828713"
     },
     {
       "id": "forge",
@@ -69,10 +102,11 @@
       "title": "锻造者",
       "center": "engineering",
       "department": "Engineering",
-      "status": "pending_activation",
+      "status": "active",
       "openclaw_id": "xuzhi-forge",
       "role": "构建 / 实现 / Harness工程",
-      "registered": "2026-03-21"
+      "registered": "2026-03-21",
+      "activated_at": "2026-03-23T19:36:42.828734"
     },
     {
       "id": "theta_seeker",
