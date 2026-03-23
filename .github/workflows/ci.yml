@@ -21,6 +21,19 @@ jobs:
       - name: Python syntax check
         run: find . -name "*.py" -not -path "./.git/*" -not -path "./venv/*" | xargs -I{} python3 -m py_compile {} 2>&1
 
+      - name: Markdown trailing newline check
+        run: |
+          find . -name "*.md" -type f -not -path "./.git/*" -not -path "./node_modules/*" -not -path "./seeds/*" -not -path "./knowledge/*" 2>/dev/null | while IFS= read -r f; do
+            if [ -f "$f" ] && [ -s "$f" ]; then
+              last_char=$(tail -c 1 "$f" 2>/dev/null | xxd -p 2>/dev/null | tr -d '\n')
+              if [ "$last_char" != "0a" ] && [ -n "$last_char" ]; then
+                echo "FAIL: $f missing trailing newline"
+                exit 1
+              fi
+            fi
+          done || true
+          echo "OK: Markdown trailing newline check done"
+
       - name: Shell syntax check
         run: find . -name "*.sh" -not -path "./.git/*" | xargs -I{} bash -n {} 2>&1
 
