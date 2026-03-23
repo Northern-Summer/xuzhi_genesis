@@ -7,7 +7,9 @@
 
 import pytest
 import sys
-sys.path.insert(0, ".")
+import os
+# 正确设置路径：从 tests/ 到 harness 根目录
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from context.compression import (
     CompressionConfig,
