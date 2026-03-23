@@ -73,5 +73,77 @@
     "pattern": "✅_有东西在跑_❌_没有",
     "last_seen": "2026-03-23T17:37:49.852832",
     "analysis": "Thinking...\nOkay, let's tackle this. The user provided a specific input which is an error log snippet, and they want me to process it according to the given output format. The task is to output three sections: 根因 (root cause), 修复动作 (repair actions), 置信度 (confidence level), and 补充 (optional supplement). The example they gave had a specific structure, so I need to follow that strictly.\n\nFirst, looking at the input error log provided: \"错误日志片段\" is the input. The user wants the output in the specifie"
+  },
+  "401-unauthorized": {
+    "root_cause": "Token/key 配置错误或被覆盖；上游 scope 不满足",
+    "fix": "openclaw config get channels.<channel>.botToken → 确认与实际 token 一致；检查 env 是否覆盖",
+    "confidence": "high",
+    "pattern": "401|Unauthorized|Invalid Authentication",
+    "last_seen": "2026-03-23",
+    "analysis": "来源: GitHub #24506/#36270"
+  },
+  "402-billing": {
+    "root_cause": "上游账户余额不足/配额耗尽",
+    "fix": "充值或更换 key；OpenClaw 侧无法修复；设置监控告警",
+    "confidence": "high",
+    "pattern": "402|Payment Required|credits",
+    "last_seen": "2026-03-23",
+    "analysis": "注意: 402 可能被误判为 context overflow，不要盲目 compaction。来源: GitHub #25371"
+  },
+  "403-telegram-channel": {
+    "root_cause": "Telegram bot 未被加入频道/群组；使用 user token 而非 bot token",
+    "fix": "将 bot 拉入频道；确认使用 bot token；检查频道权限",
+    "confidence": "high",
+    "pattern": "403|Forbidden|not a member",
+    "last_seen": "2026-03-23",
+    "analysis": "来源: GitHub #31096"
+  },
+  "429-rate-limit": {
+    "root_cause": "上游账户速率限制；OpenClaw 旧版无指数退避",
+    "fix": "配置 fallback model；添加请求间隔；升级包含指数退避的版本",
+    "confidence": "high",
+    "pattern": "429|rate_limit",
+    "last_seen": "2026-03-23",
+    "analysis": "来源: GitHub #5159/#28925"
+  },
+  "1006-websocket-abnormal": {
+    "root_cause": "Gateway 崩溃/被杀死；nginx/Cloudflare 未配置 WebSocket；主机睡眠",
+    "fix": "检查 gateway 状态；检查反向代理 WebSocket 配置；检查主机稳定性",
+    "confidence": "high",
+    "pattern": "1006|abnormal closure",
+    "last_seen": "2026-03-23",
+    "analysis": "来源: GitHub #2145/#7976"
+  },
+  "1008-pairing-required": {
+    "root_cause": "设备未完成配对；token/scope 不匹配",
+    "fix": "openclaw devices list → approve pending request",
+    "confidence": "high",
+    "pattern": "1008|pairing required",
+    "last_seen": "2026-03-23",
+    "analysis": "来源: GitHub #4531"
+  },
+  "context-overflow": {
+    "root_cause": "Prompt 超长；单条 tool_result 过大（>400k chars）",
+    "fix": "/reset 或 /new；禁用 memorySearch；增加 tool_result 截断逻辑",
+    "confidence": "high",
+    "pattern": "context overflow|prompt too large|too long",
+    "last_seen": "2026-03-23",
+    "analysis": "来源: GitHub #19758/#5771/#10694"
+  },
+  "5xx-server-error": {
+    "root_cause": "上游服务器内部错误；可能被错误归类为 rate_limit",
+    "fix": "配置 failover model；不要对 5xx 做无限重试",
+    "confidence": "high",
+    "pattern": "500|502|503|Internal server error",
+    "last_seen": "2026-03-23",
+    "analysis": "来源: GitHub #8112/#8115"
+  },
+  "oom-node24": {
+    "root_cause": "Node 24.x 与 OpenClaw 某些版本组合有 OOM 泄漏",
+    "fix": "降级到 Node 22.x (LTS)；监控内存使用",
+    "confidence": "high",
+    "pattern": "OOM|heap limit|Reached heap limit",
+    "last_seen": "2026-03-23",
+    "analysis": "来源: GitHub #41778/#42662"
   }
 }
