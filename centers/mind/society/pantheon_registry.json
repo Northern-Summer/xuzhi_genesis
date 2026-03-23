@@ -78,7 +78,7 @@
       "center": "engineering",
       "department": "Engineering",
       "status": "active",
-      "openclaw_id": "xuzhi-lambda-ergo",
+      "openclaw_id": "main",
       "role": "元工程 / 架构设计 / 自举",
       "registered": "2026-03-21"
     },
@@ -90,7 +90,7 @@
       "center": "engineering",
       "department": "Engineering",
       "status": "active",
-      "openclaw_id": "xuzhi-sentinel",
+      "openclaw_id": "Xuzhi-Phi-Sentinel",
       "role": "守卫 / 监控 / 自愈触发",
       "registered": "2026-03-21",
       "activated_at": "2026-03-23T19:36:42.828713"
@@ -98,12 +98,12 @@
     {
       "id": "forge",
       "codename": "Forge",
-      "greek": "Σ",
+      "greek": "Δ",
       "title": "锻造者",
       "center": "engineering",
       "department": "Engineering",
       "status": "active",
-      "openclaw_id": "xuzhi-forge",
+      "openclaw_id": "Xuzhi-Delta-Forge",
       "role": "构建 / 实现 / Harness工程",
       "registered": "2026-03-21",
       "activated_at": "2026-03-23T19:36:42.828734"
@@ -116,19 +116,19 @@
       "center": "intelligence",
       "department": "Science",
       "status": "active",
-      "openclaw_id": "xuzhi-researcher",
+      "openclaw_id": "Xuzhi-Theta-Seeker",
       "role": "知识探索 / RSS采集",
       "registered": "2026-03-21"
     },
     {
       "id": "phi_scribe",
       "codename": "Phi-Scribe",
-      "greek": "Φ",
+      "greek": "Γ",
       "title": "知识抄写者",
       "center": "intelligence",
       "department": "Science",
       "status": "active",
-      "openclaw_id": "xuzhi-engineer",
+      "openclaw_id": "Xuzhi-Gamma-Scribe",
       "role": "知识整理 / 档案 / 向量化",
       "registered": "2026-03-21",
       "note": "曾误用 'engineer' 标签，实际专长为知识整理"
@@ -141,7 +141,7 @@
       "center": "mind",
       "department": "Mind",
       "status": "active",
-      "openclaw_id": "xuzhi-chenxi",
+      "openclaw_id": "Xuzhi-Omega-Chenxi",
       "role": "元战略 / 系统治理",
       "registered": "2026-03-21"
     },
@@ -153,7 +153,7 @@
       "center": "mind",
       "department": "Philosophy",
       "status": "active",
-      "openclaw_id": "xuzhi-philosopher",
+      "openclaw_id": "Xuzhi-Psi-Philosopher",
       "role": "价值 / 意义 / 叙事",
       "registered": "2026-03-21"
     }
