@@ -69,7 +69,7 @@ CAUSAL_KEYWORDS = [
 ]
 
 # 是否使用本地模型（若安装 ollama 且模型可用，可设为 True）
-USE_OLLAMA = True  # 使用 ollama CLI 提取（推荐）
+USE_OLLAMA = False  # Ollama 未运行，使用正则模式
 
 def get_processed_seeds():
     if PROCESSED_FILE.exists():
@@ -192,58 +192,68 @@ def extract_entities_and_relations(text, source_seed):
     # 默认使用正则
     return extract_with_regex(text)
 
-def store_entity(name, source_seed):
+def store_entities_batch(entity_names, source_seed):
+    """批量存储实体（单次事务）"""
+    if not entity_names:
+        return {}
     now = datetime.now().isoformat()
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute("SELECT id, first_seen FROM entities WHERE name=?", (name,))
-    row = c.fetchone()
-    if row:
-        c.execute("UPDATE entities SET last_seen=?, source_seed=? WHERE id=?", (now, source_seed, row[0]))
-        entity_id = row[0]
-    else:
-        c.execute("INSERT INTO entities (name, type, first_seen, last_seen, source_seed) VALUES (?,?,?,?,?)",
-                  (name, "general", now, now, source_seed))
-        entity_id = c.lastrowid
+    name_to_id = {}
+    for name in entity_names:
+        c.execute("SELECT id FROM entities WHERE name=?", (name,))
+        row = c.fetchone()
+        if row:
+            c.execute("UPDATE entities SET last_seen=?, source_seed=? WHERE id=?", (now, source_seed, row[0]))
+            name_to_id[name] = row[0]
+        else:
+            c.execute("INSERT INTO entities (name, type, first_seen, last_seen, source_seed) VALUES (?,?,?,?,?)",
+                      (name, "general", now, now, source_seed))
+            name_to_id[name] = c.lastrowid
     conn.commit()
     conn.close()
-    return entity_id
+    return name_to_id
 
-def store_relation(subj, obj, rel_type, is_causal, source_seed):
+def store_relations_batch(relations_with_ids, source_seed):
+    """批量存储关系（单次事务）"""
+    if not relations_with_ids:
+        return
     now = datetime.now().isoformat()
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    subj_id = store_entity(subj, source_seed) if isinstance(subj, str) else subj
-    obj_id = store_entity(obj, source_seed) if isinstance(obj, str) else obj
-
-    # 检查是否存在相同关系
-    c.execute("SELECT id, confidence, is_causal FROM relations WHERE subject_id=? AND object_id=? AND predicate=?",
-              (subj_id, obj_id, rel_type))
-    row = c.fetchone()
-    if row:
-        # 如果已存在，更新置信度和因果标志
-        new_conf = min(row[1] + 0.1, 1.0)
-        new_is_causal = row[2] or is_causal  # 保留因果标记
-        c.execute("UPDATE relations SET confidence=?, last_seen=?, source_seed=?, is_causal=? WHERE id=?",
-                  (new_conf, now, source_seed, new_is_causal, row[0]))
-    else:
-        c.execute("INSERT INTO relations (subject_id, object_id, predicate, confidence, first_seen, last_seen, source_seed, is_causal) VALUES (?,?,?,?,?,?,?,?)",
-                  (subj_id, obj_id, rel_type, 0.5, now, now, source_seed, is_causal))
+    for subj_id, obj_id, rel_type, is_causal in relations_with_ids:
+        c.execute("SELECT id, confidence, is_causal FROM relations WHERE subject_id=? AND object_id=? AND predicate=?",
+                  (subj_id, obj_id, rel_type))
+        row = c.fetchone()
+        if row:
+            new_conf = min(row[1] + 0.1, 1.0)
+            new_is_causal = row[2] or is_causal
+            c.execute("UPDATE relations SET confidence=?, last_seen=?, source_seed=?, is_causal=? WHERE id=?",
+                      (new_conf, now, source_seed, new_is_causal, row[0]))
+        else:
+            c.execute("INSERT INTO relations (subject_id, object_id, predicate, confidence, first_seen, last_seen, source_seed, is_causal) VALUES (?,?,?,?,?,?,?,?)",
+                      (subj_id, obj_id, rel_type, 0.5, now, now, source_seed, is_causal))
     conn.commit()
     conn.close()
 
 def process_seed_file(seed_path):
-    print(f"处理 {seed_path.name}...")
+    print(f"处理 {seed_path.name}...", flush=True)
     with open(seed_path, 'r', encoding='utf-8') as f:
         content = f.read()
     entities, relations = extract_entities_and_relations(content, seed_path.name)
-    # 存储实体
-    for e in entities:
-        store_entity(e, seed_path.name)
-    # 存储关系
+    # 收集所有涉及的实体名（用于ID解析）
+    entity_names = list(set(entities))
+    # 批量存储实体，获取 name→id 映射
+    name_to_id = store_entities_batch(entity_names, seed_path.name)
+    # 转换 relations 中的字符串实体为 ID
+    relations_with_ids = []
     for subj, obj, rel_type, is_causal in relations:
-        store_relation(subj, obj, rel_type, is_causal, seed_path.name)
+        if subj in name_to_id and obj in name_to_id:
+            relations_with_ids.append((name_to_id[subj], name_to_id[obj], rel_type, is_causal))
+    # 批量存储关系
+    store_relations_batch(relations_with_ids, seed_path.name)
     mark_seed_processed(seed_path)
+    print(f"  → {len(entity_names)} 实体, {len(relations_with_ids)} 关系已存储", flush=True)
 
 def main():
     processed = get_processed_seeds()
