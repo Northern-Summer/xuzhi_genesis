@@ -8,7 +8,7 @@ import pytest
 import sys
 sys.path.insert(0, ".")
 
-from harness import HarnessAgent, HarnessConfig, get_agent
+from harness.harness import HarnessAgent, HarnessConfig, get_agent
 from core.model import MockModel, ModelConfig
 from executor.bash import BashExecutor, BashConfig
 
@@ -273,7 +273,7 @@ class TestConvenienceFunctions:
     
     def test_query_shortcut(self):
         """query 快捷方式"""
-        from harness import query
+        from harness.harness import query
         
         result = query("test", max_turns=1)
         assert "content" in result
