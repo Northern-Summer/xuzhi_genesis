@@ -72,3 +72,7 @@
 {"date": "2026-03-24", "time": "12:29:55", "agent": "Λ", "task": "task_46", "feedback": "positive", "reason": "自主执行完成", "lesson": ""}
 {"date": "2026-03-24", "time": "12:30:36", "agent": "Θ", "task": "task_68", "feedback": "positive", "reason": "自主执行完成", "lesson": ""}
 {"date": "2026-03-24", "time": "12:31:21", "agent": "Λ", "task": "task_46", "feedback": "positive", "reason": "自主执行完成", "lesson": ""}
+{"date": "2026-03-24", "time": "12:33:13", "agent": "Λ", "task": "task_46", "feedback": "positive", "reason": "认领时发现任务已由主agent标记完成", "lesson": ""}
+{"date": "2026-03-24", "time": "12:33:24", "agent": "Ω", "task": "task_28", "feedback": "positive", "reason": "任务已由系统完成(subagent验证)", "lesson": ""}
+{"date": "2026-03-24", "time": "12:33:46", "agent": "Θ", "task": "task_69", "feedback": "positive", "reason": "自主执行完成", "lesson": ""}
+{"date": "2026-03-24", "time": "12:33:48", "agent": "Ω", "task": "task_29", "feedback": "positive", "reason": "自主执行完成，但任务已处于放弃状态无法正常提交", "lesson": ""}
