@@ -202,6 +202,10 @@ def process_proposal(agent_id):
     if agent_id not in prop["votes"]:
         prop["votes"][agent_id] = "yes"
         print(f"[{agent_id}] 投票 yes（总 {len(prop['votes'])}/{len(RING)}）")
+        try:
+            add_episode(agent_id, "parliament_vote", f"提案{prop_id}投票", f"vote=yes,total={len(prop['votes'])}/{len(RING)}", "success")
+        except Exception as e:
+            print(f"[{agent_id}] L2记录失败: {e}")
 
     # 检查是否全票
     all_voted = all(a in prop["votes"] for a in RING)
@@ -213,6 +217,11 @@ def process_proposal(agent_id):
             prop["status"] = "passed"
             prop["result"] = "passed"
             print(f"[{agent_id}] 提案 #{prop_id} 通过！{yes}/{len(RING)}")
+            try:
+                add_episode(agent_id, "parliament_passed", f"提案{prop_id}通过", f"{yes}/{len(RING)}全票", "success")
+                add_knowledge(f"提案{prop_id}通过", prop.get("description","")[:200], f"proposal#{prop_id}", "parliament,decision", 0.7, 1.0)
+            except Exception as e:
+                print(f"[{agent_id}] L2/L3记录失败: {e}")
             execute_proposal(prop)
         else:
             prop["status"] = "rejected"
