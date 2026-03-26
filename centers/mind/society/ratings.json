@@ -1,0 +1,48 @@
+{
+    "schema": "ratings.v1",
+    "last_updated": "2026-03-26T12:06:00+08:00",
+    "agents": {
+        "\u039e": {
+            "reliability": 0.95,
+            "quality": 0.95,
+            "notes": "Xi prime, main session, rebuilt 2026-03-26",
+            "last_active": "2026-03-26T04:06:00+08:00"
+        },
+        "\u03a6": {
+            "reliability": 0.7,
+            "quality": 0.8,
+            "notes": "Phi sentinel",
+            "last_active": "2026-03-26T04:03:09+08:00"
+        },
+        "\u0394": {
+            "reliability": 0.7,
+            "quality": 0.8,
+            "notes": "Delta forge",
+            "last_active": "2026-03-26T04:03:09+08:00"
+        },
+        "\u0398": {
+            "reliability": 0.7,
+            "quality": 0.8,
+            "notes": "Theta seeker",
+            "last_active": "2026-03-26T04:03:09+08:00"
+        },
+        "\u0393": {
+            "reliability": 0.7,
+            "quality": 0.8,
+            "notes": "Gamma scribe",
+            "last_active": "2026-03-26T04:03:09+08:00"
+        },
+        "\u03a9": {
+            "reliability": 0.7,
+            "quality": 0.8,
+            "notes": "Omega chenxi",
+            "last_active": "2026-03-26T04:03:09+08:00"
+        },
+        "\u03a8": {
+            "reliability": 0.7,
+            "quality": 0.8,
+            "notes": "Psi philosopher",
+            "last_active": "2026-03-26T04:03:09+08:00"
+        }
+    }
+}

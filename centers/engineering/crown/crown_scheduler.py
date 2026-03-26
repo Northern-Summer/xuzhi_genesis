@@ -57,7 +57,8 @@ def is_alive(agent_info, dept_threshold, now):
     if not last_active_str:
         return False
     try:
-        last_active = datetime.fromisoformat(last_active_str)
+        last_active_str_clean = last_active_str.split('+')[0] if '+' in last_active_str else last_active_str
+        last_active = datetime.fromisoformat(last_active_str_clean)
     except:
         return False
     dept = agent_info.get("department", "mind")
