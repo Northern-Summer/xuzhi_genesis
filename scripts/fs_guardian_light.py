@@ -30,7 +30,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from typing import Tuple, List, Optional
 
-HOME = Path.home())
+HOME = Path.home()
 ROOT = HOME / "xuzhi_genesis"
 LOG_DIR = ROOT / "centers" / "engineering" / "crown"
 STATE_FILE = LOG_DIR / "guardian_state.json"  # 上次运行状态（用于比较）
