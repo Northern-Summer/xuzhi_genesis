@@ -107,7 +107,7 @@ def main():
         "epsilon": "ε", "zeta": "ζ", "eta": "η", "theta": "θ",
         "iota": "ι", "kappa": "κ", "lambda": "λ", "mu": "μ",
         "nu": "ν", "xi": "ξ", "omicron": "ο", "pi": "π",
-        "rho": "ρ", "sigma": "σ", "tau": "τ", "upsilon": "υ",
+        "rho": "rho", "sigma": "σ", "tau": "τ", "upsilon": "υ",
         "phi": "φ", "chi": "χ", "psi": "ψ", "omega": "ω",
         "Alpha": "Α", "Beta": "Β", "Gamma": "Γ", "Delta": "Δ",
         "Lambda": "Λ", "Omega": "Ω", "Sigma": "Σ", "Pi": "Π",
