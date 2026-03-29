@@ -8,6 +8,15 @@ from datetime import datetime
 
 RATINGS_JSON = Path.home() / ".openclaw" / "centers" / "mind" / "society" / "ratings.json"
 LEADERBOARD_MD = Path.home() / ".openclaw" / "centers" / "mind" / "society" / "leaderboard.md"
+LOG_FILE = Path.home() / ".openclaw" / "logs" / "update_leaderboard.log"
+
+def log(msg):
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    line = f"[{ts}] {msg}"
+    print(line)
+    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(LOG_FILE, "a") as f:
+        f.write(line + "\n")
 
 def load_ratings():
     with open(RATINGS_JSON, 'r', encoding='utf-8') as f:
@@ -48,10 +57,15 @@ def generate_leaderboard(ratings_data):
     return "".join(lines)
 
 def main():
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_line = f"[{ts}] 启动"
+    print(log_line)
+    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(LOG_FILE, "a") as f:
+        f.write(log_line + "\n")
     ratings = load_ratings()
     leaderboard = generate_leaderboard(ratings)
-    with open(LEADERBOARD_MD, 'w', encoding='utf-8') as f:
-        f.write(leaderboard)
+    LEADERBOARD_MD.write_text(leaderboard, encoding="utf-8")
     print(f"✅ 排行榜已更新：{LEADERBOARD_MD}")
 
 if __name__ == "__main__":

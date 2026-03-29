@@ -1,60 +1,55 @@
+#!/usr/bin/env python3
+# 工程改进铁律合规 — Ξ | 2026-03-29
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+"""
+记忆压缩与归档 - 从 sessions.json.bak 降维提取
+"""
 import json
 import os
-import datetime
+from pathlib import Path
+from datetime import datetime
 
-# --- 配置物理坐标 ---
-CLAW_ROOT = "/home/summer/.openclaw"
-BACKUP_FILE = f"{CLAW_ROOT}/agents/main/sessions/sessions.json.bak"
-ARCHIVE_DIR = f"{CLAW_ROOT}/agents/main/workspace/archives"
-INDEX_FILE = f"{CLAW_ROOT}/agents/main/workspace/MEMORY_INDEX.md"
+CLAW_ROOT = Path.home() / ".openclaw"
+BACKUP_FILE = CLAW_ROOT / "agents/main/sessions/sessions.json.bak"
+ARCHIVE_DIR = CLAW_ROOT / "agents/main/workspace/archives"
+INDEX_FILE = CLAW_ROOT / "agents/main/workspace/MEMORY_INDEX.md"
+LOG_FILE = CLAW_ROOT / "logs" / "memory_forge.log"
+
+def log(msg):
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    line = f"[{ts}] {msg}"
+    print(line)
+    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(LOG_FILE, "a") as f:
+        f.write(line + "\n")
 
 def forge_memories():
-    print("🧠 [虚质记忆引擎] 正在启动记忆降维与归档序列...")
-    
-    if not os.path.exists(BACKUP_FILE):
-        print(f"❌ 找不到备份文件: {BACKUP_FILE}")
+    log("启动")
+    if not BACKUP_FILE.exists():
+        log(f"跳过：备份文件不存在 {BACKUP_FILE}")
         return
 
-    os.makedirs(ARCHIVE_DIR, exist_ok=True)
-    
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+
     try:
-        with open(BACKUP_FILE, 'r', encoding='utf-8') as f:
-            data = json.load(f)
+        data = json.loads(BACKUP_FILE.read_text(encoding="utf-8"))
     except Exception as e:
-        print(f"❌ 解析 JSON 失败: {e}")
+        log(f"失败：JSON解析错误 {e}")
         return
 
-    # 提取对话或系统日志 (根据具体 JSON 结构适配，这里假设是一个列表或包含 messages 的结构)
-    # OpenClaw 的 session 结构可能嵌套，我们采取宽泛提取策略
-    extracted_texts = []
-    
-    # 将整个 JSON 转换为格式化的字符串，按固定字符数切片（粗略模拟分块提取）
     raw_str = json.dumps(data, ensure_ascii=False, indent=2)
-    chunk_size = 5000 # 每个档案大约 5000 个字符
+    chunk_size = 5000
     chunks = [raw_str[i:i+chunk_size] for i in range(0, len(raw_str), chunk_size)]
-    
-    index_content = "# 虚质系统 (Xuzhi) 核心记忆索引\n\n> 提示：以下是系统历史心血的压缩切片。如有必要，请使用你的 `read_file` 工具读取对应路径的详细档案。\n\n"
-    
-    for idx, chunk in enumerate(chunks):
-        archive_name = f"memory_fragment_{idx:03d}.md"
-        archive_path = os.path.join(ARCHIVE_DIR, archive_name)
-        
-        # 写入详细档案
-        with open(archive_path, 'w', encoding='utf-8') as af:
-            af.write(f"--- 历史记忆碎片 {idx:03d} ---\n\n")
-            af.write(chunk)
-            
-        # 提取前 50 个字符作为摘要放入索引
-        summary = chunk[:50].replace('\n', ' ').strip() + "..."
-        index_content += f"- **[档案 {idx:03d}]**: `{archive_path}`\n  - *摘要*: {summary}\n\n"
 
-    # 写入顶层索引
-    with open(INDEX_FILE, 'w', encoding='utf-8') as f:
-        f.write(index_content)
-        
-    print(f"✅ 记忆降维完成！共生成 {len(chunks)} 个高密度档案。")
-    print(f"✅ 抽象索引已生成于: {INDEX_FILE}")
+    lines = ["# 记忆索引\n\n"]
+    for idx, chunk in enumerate(chunks):
+        name = f"fragment_{idx:03d}.md"
+        path = ARCHIVE_DIR / name
+        path.write_text(f"--- 碎片 {idx} ---\n\n{chunk}\n", encoding="utf-8")
+        lines.append(f"- `{path}` — {chunk[:50].strip()}...\n")
+
+    INDEX_FILE.write_text("".join(lines), encoding="utf-8")
+    log(f"完成：生成 {len(chunks)} 个碎片")
 
 if __name__ == "__main__":
     forge_memories()
-
