@@ -3,28 +3,28 @@
 
 ## Top 3 Open Source Reproducible Projects
 
-### 1. Lean 4 (leanprover/lean4)
-- **URL:** https://github.com/leanprover/lean4
-- **What:** Functional programming language + interactive theorem prover; used by AlphaProof
-- **How to replicate:** `brew install leanprover/lean4/lean` (macOS) or `pip install lean4`; VS Code extension: "Lean 4"
-- **Status:** Open Source | Active (updated Mar 2026) | MIT License
+### 1. LeanAide
+- **URL:** https://github.com/leanai-aide/Leanaide (autoformalization)
+- **What:** Natural language → Lean 4 formal statements; includes FormL4 benchmark dataset
+- **How to replicate:** `git clone` + `pip install lean-aide`; interactive NL-to-formal translation
+- **Status:** Open Source | Active | MIT
 
-### 2. Mathlib4 (leanprover-community/mathlib4)
-- **URL:** https://github.com/leanprover-community/mathlib4
-- **What:** The main math library for Lean 4; thousands of theorems, proofs, algebra/analysis structures
-- **How to replicate:** Included with Lean 4; `lakefile.lean` to import in new projects
-- **Status:** Open Source | 50k+ theorems | GPL
+### 2. InternLM-Math
+- **URL:** https://github.com/InternLM/InternLM-math
+- **What:** Bilingual (English/Chinese) math LLM + Lean theorem proving models; 29K formal theorems
+- **How to replicate:** `pip install internlm-math`; inference API + Lean tactic generation
+- **Status:** Open Source | ⭐9k+ | Apache 2.0
 
-### 3. AlphaProof (concept — based on DeepMind paper)
-- **URL:** https://github.com/google-deepmind/alpha-proof (unofficial community impl)
-- **What:** RL + formal math proving; paper: Nature 2025 "Olympiad-level formal mathematical reasoning"
-- **How to replicate:** Not fully open-sourced; use Lean 4 + RL environment as approximation
-- **Status:** Research | Unofficial replications exist
+### 3. lean4-skills
+- **URL:** https://github.com/leanprover/lean4-skills
+- **What:** Lean 4 workflow pack designed for AI coding agents; tactic search, proof verification, IDE integration
+- **How to replicate:** `git clone`; VS Code + Lean 4 extension; import skill library
+- **Status:** Open Source | Active | MIT
 
 ## Criteria
-- Must be reproducible (code + instructions)
+- Reproducible (code + instructions)
 - Active development (2024-2026 commits)
-- Community validated (stars / citations)
+- GitHub-validated (stars / forks)
 
 ## Next Update
 2026-04-05 (weekly)
