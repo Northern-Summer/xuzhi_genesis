@@ -18,6 +18,9 @@ build/
 *.egg
 .venv/
 venv/
+venvs/
+**/venv/
+**/venvs/
 ENV/
 .env
 
