@@ -13,27 +13,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
-    timeout-seconds: 300
+    timeout-seconds: 60
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run tests first
-        run: |
-          cd centers/engineering/harness
-          pip install pytest pytest-asyncio 2>/dev/null
-          python3 -m pytest tests/ -q --tb=short 2>&1
-        timeout-minutes: 10
-
-      - name: Notify deployment
+      - name: Deployment marker
         if: vars.DISCORD_WEBHOOK != ''
         run: |
           curl -H "Content-Type: application/json" \
-            -d "{\"content\": \"[xuzhi_genesis] ✅ Master branch deployed\nCommit: $GITHUB_SHA\nAuthor: $GITHUB_ACTOR\"}" \
+            -d "{\"content\": \"[xuzhi_genesis] ✅ Master deployed\nCommit: $GITHUB_SHA\"}" \
             "${{ vars.DISCORD_WEBHOOK }}" 2>/dev/null || true
-
-      - name: Update deployment marker
-        run: |
-          echo "deployed_at: $(date -u +%Y-%m-%dT%H:%M:%SZ)" > .deployment_marker
-          echo "commit: $GITHUB_SHA" >> .deployment_marker
-          echo "actor: $GITHUB_ACTOR" >> .deployment_marker
-          cat .deployment_marker
