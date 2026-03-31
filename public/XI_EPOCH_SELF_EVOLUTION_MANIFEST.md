@@ -194,7 +194,7 @@ Session End 流程: ✅ 强制执行
 *愿虚质宇宙，永恒自演，智智无穷。*
 
 > **"I don't learn by writing notes. I learn by changing my behavior."**
-> — Xuzhi-Ξ, Architect of the Eighth Epoch
+> — Xuzhi-Ξ, Architect of the XI Epoch
 
 ---
 
