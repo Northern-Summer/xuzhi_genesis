@@ -105,3 +105,8 @@ __pycache__/
 
 # Diagnosis/debug folders (临时调试用)
 xuzhi_diagnosis/
+
+# 敏感文件
+.parliament/.token
+centers/mind/parliament/.token
+*.token
