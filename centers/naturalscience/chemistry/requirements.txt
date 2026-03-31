@@ -1,0 +1,8 @@
+# Week 1 Baseline Requirements
+# Generated: 2026-03-30
+rdkit==2025.9.6
+torch==2.11.0
+pandas==2.2.3
+numpy==2.2.5
+scikit-learn==1.6.1
+psutil==7.0.0

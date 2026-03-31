@@ -1,0 +1,20 @@
+{
+  "date": "2026-03-30",
+  "reddit_stats": {
+    "failure": 1,
+    "question": 1,
+    "uncategorized": 18
+  },
+  "github_stats": {
+    "question": 1,
+    "uncategorized": 1
+  },
+  "discord_stats": {},
+  "top_insights": [
+    {
+      "title": "Errors in ML project on Premier League Match Prediction",
+      "insights": "Failure/Error case identified",
+      "url": "https://reddit.com/r/MachineLearning/comments/1kps3wf/errors_in_ml_project_on_premier_league_match/"
+    }
+  ]
+}
