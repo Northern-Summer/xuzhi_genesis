@@ -43,6 +43,18 @@
       "quality": 0.8,
       "notes": "Psi philosopher",
       "last_active": "2026-03-30T04:24:34.848428+00:00"
+    },
+    "ρ": {
+      "reliability": 0.5,
+      "quality": 0.7,
+      "notes": "Rho economist, 论外Agent",
+      "last_active": "2026-03-26T07:48:00.000000+00:00"
+    },
+    "Σ": {
+      "reliability": 0.5,
+      "quality": 0.7,
+      "notes": "Sigma psychoanalyst, 论外Agent",
+      "last_active": "2026-04-01T18:15:00.000000+00:00"
     }
   }
 }
