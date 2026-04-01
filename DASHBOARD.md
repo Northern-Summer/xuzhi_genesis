@@ -249,6 +249,12 @@ xuzhi_genesis (最近 20 次提交):
 
 ## 🏛️ 宪法与规范
 
+### 纪元
+
+- **当前纪元**：Ξ 纪元 (Xi Epoch)
+- **年表**：`public/EPOCH_TIMELINE.md`
+- **定义**：`public/EPOCH_DEFINITIONS.md`
+
 ### 核心文档
 
 | 文档 | 路径 | 用途 |
