@@ -6,55 +6,55 @@
       "reliability": 0.95,
       "quality": 0.95,
       "notes": "Xi prime, main session",
-      "last_active": "2026-03-30T04:24:34.848428+00:00"
+      "last_active": "2026-04-02T09:45:11.581099+00:00"
     },
     "Φ": {
       "reliability": 0.7,
       "quality": 0.8,
       "notes": "Phi sentinel",
-      "last_active": "2026-03-30T04:24:34.848428+00:00"
+      "last_active": "2026-04-02T09:45:11.581099+00:00"
     },
     "Δ": {
       "reliability": 0.7,
       "quality": 0.8,
       "notes": "Delta forge",
-      "last_active": "2026-03-30T04:24:34.848428+00:00"
+      "last_active": "2026-04-02T09:45:11.581099+00:00"
     },
     "Θ": {
       "reliability": 0.7,
       "quality": 0.8,
       "notes": "Theta seeker",
-      "last_active": "2026-03-30T04:24:34.848428+00:00"
+      "last_active": "2026-04-02T09:45:11.581099+00:00"
     },
     "Γ": {
       "reliability": 0.7,
       "quality": 0.8,
       "notes": "Gamma scribe",
-      "last_active": "2026-03-30T04:24:34.848428+00:00"
+      "last_active": "2026-04-02T09:45:11.581099+00:00"
     },
     "Ω": {
       "reliability": 0.7,
       "quality": 0.8,
       "notes": "Omega chenxi",
-      "last_active": "2026-03-30T04:24:34.848428+00:00"
+      "last_active": "2026-04-02T09:45:11.581099+00:00"
     },
     "Ψ": {
       "reliability": 0.7,
       "quality": 0.8,
       "notes": "Psi philosopher",
-      "last_active": "2026-03-30T04:24:34.848428+00:00"
+      "last_active": "2026-04-02T09:45:11.581099+00:00"
     },
     "ρ": {
       "reliability": 0.5,
       "quality": 0.7,
       "notes": "Rho economist, 论外Agent",
-      "last_active": "2026-03-26T07:48:00.000000+00:00"
+      "last_active": "2026-04-02T09:45:11.581099+00:00"
     },
     "Σ": {
       "reliability": 0.5,
       "quality": 0.7,
       "notes": "Sigma psychoanalyst, 论外Agent",
-      "last_active": "2026-04-01T18:15:00.000000+00:00"
+      "last_active": "2026-04-02T09:45:11.581099+00:00"
     }
   }
 }
