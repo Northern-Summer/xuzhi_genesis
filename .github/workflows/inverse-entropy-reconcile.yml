@@ -1,0 +1,61 @@
+name: Inverse Entropy Reconcile
+on:
+  push:
+    paths-ignore: ['.inverse-entropy/**']
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: inverse-entropy-${{ github.repository }}
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with: {fetch-depth: 0, persist-credentials: true}
+      - shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
+          default_branch="$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"; : "${default_branch:=${GITHUB_REF_NAME}}"
+          mkdir -p .inverse-entropy; export DEFAULT_BRANCH="$default_branch"
+          python - <<'PY'
+          import json,os,re,subprocess
+          from datetime import datetime,timezone
+          repo=os.environ['GITHUB_REPOSITORY']; default=os.environ['DEFAULT_BRANCH']; protected={'rsm-openai-bridge-experiment'}
+          def r(c,t=120): return subprocess.run(c,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=t)
+          bs=[x.strip() for x in r(['git','for-each-ref','--format=%(refname:strip=3)','refs/remotes/origin/']).stdout.splitlines() if x.strip()]
+          o={'schema':'inverse-entropy-reconciliation/v1','repository':repo,'default_branch':default,'started_at':datetime.now(timezone.utc).isoformat(),'branches':[]}
+          for b in sorted(set(bs)):
+            if b==default: continue
+            x={'branch':b}
+            try:
+              if b in protected: x['disposition']='protected-live'; o['branches'].append(x); continue
+              tip=r(['git','rev-parse',f'origin/{b}']).stdout.strip(); x['tip']=tip; tag='archive/inverse-entropy/'+re.sub(r'[^A-Za-z0-9._-]+','__',b)+'-'+tip[:12]; x['archive_tag']=tag
+              if r(['git','rev-parse','refs/tags/'+tag]).returncode!=0: x['tag_created']=r(['git','tag',tag,tip]).returncode==0 and r(['git','push','origin','refs/tags/'+tag]).returncode==0
+              if r(['git','merge-base','--is-ancestor',f'origin/{b}',f'origin/{default}']).returncode==0:
+                d=r(['git','push','origin','--delete',b]); x['disposition']='absorbed-and-reclaimed' if d.returncode==0 else 'absorbed-but-delete-blocked'; o['branches'].append(x); continue
+              raw=r(['gh','pr','list','--repo',repo,'--state','open','--head',b,'--json','number,baseRefName,mergeable,url']).stdout.strip(); prs=json.loads(raw) if raw else []
+              if not prs:
+                d=r(['git','push','origin','--delete',b]); x['disposition']='archived-orphan-and-reclaimed' if d.returncode==0 else 'archived-orphan-delete-blocked'; o['branches'].append(x); continue
+              pr=prs[0]; x.update({'pr_number':pr.get('number'),'pr_base':pr.get('baseRefName'),'pr_url':pr.get('url'),'mergeable':pr.get('mergeable')}); c=r(['gh','pr','checks',str(pr['number']),'--repo',repo,'--json','name,state,bucket']).stdout.strip(); rows=json.loads(c) if c else []; x['check_count']=len(rows)
+              if not rows: x['disposition']='quarantine-no-test-evidence'; o['branches'].append(x); continue
+              w=r(['gh','pr','checks',str(pr['number']),'--repo',repo,'--watch','--fail-fast','--interval','10'],900); f=r(['gh','pr','checks',str(pr['number']),'--repo',repo,'--json','name,state,bucket']).stdout.strip(); fr=json.loads(f) if f else []; ok=bool(fr) and all(q.get('bucket')=='PASSING' for q in fr); x.update({'checks_watch_exit':w.returncode,'checks_all_passing':ok})
+              if pr.get('mergeable')!='MERGEABLE' or w.returncode!=0 or not ok: x['disposition']='quarantine-check-or-mergeability-fail'; o['branches'].append(x); continue
+              m=r(['gh','pr','merge',str(pr['number']),'--repo',repo,'--merge','--delete-branch'],300); x['disposition']='merged-and-reclaimed' if m.returncode==0 else 'merge-failed-retained'; x['merge_exit']=m.returncode
+            except Exception as e: x['disposition']='error-retained'; x['error']=str(e)[-3000:]
+            o['branches'].append(x)
+          o['finished_at']=datetime.now(timezone.utc).isoformat(); o['summary']={}
+          for x in o['branches']: o['summary'][x['disposition']]=o['summary'].get(x['disposition'],0)+1
+          o['coverage_percent']=100.0 if all('disposition' in x for x in o['branches']) else 0.0
+          json.dump(o,open('.inverse-entropy/latest-report.json','w',encoding='utf-8'),ensure_ascii=False,indent=2,sort_keys=True)
+          PY
+      - run: |
+          git config user.name 'Inverse Entropy Reconciler'; git config user.email 'inverse-entropy-reconciler@users.noreply.github.com'; git add .inverse-entropy/latest-report.json; git diff --cached --quiet || (git commit -m 'chore: persist inverse-entropy reconciliation ledger' && git push origin HEAD:${{ github.event.repository.default_branch }})
