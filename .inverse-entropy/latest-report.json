@@ -1,0 +1,42 @@
+{
+  "branches": [
+    {
+      "archive_tag": "archive/inverse-entropy/inverse-entropy__cleanup-v1-01e52d2b0b2b",
+      "branch": "inverse-entropy/cleanup-v1",
+      "disposition": "absorbed-and-reclaimed",
+      "tag_created": true,
+      "tip": "01e52d2b0b2b0259f7ceb7f5b9d0d08b3152749e"
+    },
+    {
+      "archive_tag": "archive/inverse-entropy/inverse-entropy__reconcile-final-01e52d2b0b2b",
+      "branch": "inverse-entropy/reconcile-final",
+      "disposition": "absorbed-and-reclaimed",
+      "tag_created": true,
+      "tip": "01e52d2b0b2b0259f7ceb7f5b9d0d08b3152749e"
+    },
+    {
+      "archive_tag": "archive/inverse-entropy/inverse-entropy__reconcile-v1-01e52d2b0b2b",
+      "branch": "inverse-entropy/reconcile-v1",
+      "disposition": "absorbed-and-reclaimed",
+      "tag_created": true,
+      "tip": "01e52d2b0b2b0259f7ceb7f5b9d0d08b3152749e"
+    },
+    {
+      "archive_tag": "archive/inverse-entropy/memory_backup-099ac6bac04f",
+      "branch": "memory_backup",
+      "disposition": "archived-orphan-and-reclaimed",
+      "tag_created": true,
+      "tip": "099ac6bac04f701e8990b9092f16f9509c78f107"
+    }
+  ],
+  "coverage_percent": 100.0,
+  "default_branch": "master",
+  "finished_at": "2026-08-18T10:27:42.525619+00:00",
+  "repository": "Northern-Summer/xuzhi_genesis",
+  "schema": "inverse-entropy-reconciliation/v1",
+  "started_at": "2026-08-18T10:27:34.675641+00:00",
+  "summary": {
+    "absorbed-and-reclaimed": 3,
+    "archived-orphan-and-reclaimed": 1
+  }
+}
